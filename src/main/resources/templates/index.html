@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment( ~{::title}, null, ~{::#mainContent})}">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Accueil</title>~
 </head>
 <body>
-
+<article id="${mainContent} ?: ~{}">
+    <h1>Page 1</h1>
+    <p>Main content of Page 1</p>
+</article>
 </body>
 </html>

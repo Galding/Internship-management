@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="main-fragment (title, otherStaticResources, header, nav, mainContent, footer)">
+<head>
+    <meta charset="UTF-8">
+    <title th:replace="${title}">Stage BTS</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/general.css}" href="../../static/css/general.css"/>
+    <th:block th:replace="${otherStaticResources} ?: ~{}"></th:block>
+</head>
+<body>
+    <header th:insert="${header} ?: ~{}">
+        <h2>Stage BTS</h2>
+        <h3>Bienvenue sur la page de gestion des stages</h3>
+        <div></div>
+    </header>
+    <section>
+        <nav th:insert="${nav} ?: ~{}">
+            <ul>
+                <li id="onglet_accueil"><a href="#">Accueil</a></li>
+                <li id="onglet_entreprise"><a href="#">Entreprise</a></li>
+                <li id="onglet_stagiaire"><a href="#">Stagiaire</a></li>
+                <li id="onglet_inscrire"><a href="#">Inscription</a></li>
+                <li id="onglet_aide"><a href="#">Aide</a></li>
+                <li><a href="#">Déconnexion</a></li>
+            </ul>
+        </nav>
+        <div id="main-content" th:insert="${mainContent}"></div>
+
+    </section>
+    <footer th:insert="${footer} ?: ~{}">
+        <p>Footer</p>
+    </footer>
+</body>
+</html>
