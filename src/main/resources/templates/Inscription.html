@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment( ~{::title}, ~{::script}, ~{:: #entreprise-main-content})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+</head>
+<body>
+  <div id="entreprise-main-content">
+    <form action="/inscription" method="POST">
+        <fieldset name="Contact">
+            <label for="entreprises">Entreprise</label>
+            <select id="entreprises">
+                <option th:each="entrepriseList : ${entrepriseList}" th:value="${entrepriseList}" th:text="${entrepriseList}"></option>
+            </select>
+            <label for="etudiants">Etudiant</label>
+            <select id="etudiants">
+                <option th:each="etudiantList : ${etudiantList}" th:value="${etudiantList}" th:text="${etudiantList}"></option>
+            </select>
+            <label for="professeurs">Professeur</label>
+            <select id="professeurs">
+                <option th:each="professeursList : ${professeursList}" th:value="${professeursList}" th:text="${professeursList}"></option>
+            </select>
+        </fieldset>
+    </form>
+
+  </div>
+
+</body>
+</html>

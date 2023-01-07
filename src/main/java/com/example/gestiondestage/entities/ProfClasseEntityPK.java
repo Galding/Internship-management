@@ -1,4 +1,4 @@
-package com.example.gestiondestage.entity;
+package com.example.gestiondestage.entities;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
