@@ -1,14 +1,9 @@
 package com.example.gestiondestage.controller;
 
-import com.example.gestiondestage.services.CompanyService;
-import com.example.gestiondestage.services.CompanyServiceImpl;
-import com.example.gestiondestage.services.StudentService;
-import com.example.gestiondestage.services.StudentServiceImpl;
+import com.example.gestiondestage.services.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -27,8 +22,10 @@ public class MainController {
     public String inscription(Model model){
         CompanyService companyService = new CompanyServiceImpl();
         StudentService studentService = new StudentServiceImpl();
+        ProfessorService professorService = new ProfessorServiceImpl();
         model.addAttribute("entrepriseList", companyService.getCompaniesNames());
-        model.addAttribute("etudiantList", studentService.getAllStudentsNames());
+        model.addAttribute("etudiantList", studentService.getStudentsNames());
+        model.addAttribute("professeursList", professorService.getProfessorsNames());
         return "inscription";
     }
 }

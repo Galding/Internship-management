@@ -9,23 +9,93 @@
 <body>
   <div id="entreprise-main-content">
     <form action="/inscription" method="POST">
-        <fieldset name="Contact">
-            <label for="entreprises">Entreprise</label>
-            <select id="entreprises">
-                <option th:each="entrepriseList : ${entrepriseList}" th:value="${entrepriseList}" th:text="${entrepriseList}"></option>
-            </select>
-            <label for="etudiants">Etudiant</label>
-            <select id="etudiants">
-                <option th:each="etudiantList : ${etudiantList}" th:value="${etudiantList}" th:text="${etudiantList}"></option>
-            </select>
-            <label for="professeurs">Professeur</label>
-            <select id="professeurs">
-                <option th:each="professeursList : ${professeursList}" th:value="${professeursList}" th:text="${professeursList}"></option>
-            </select>
+        <fieldset name="contact">
+            <table>
+                <tr><th>Contact</th></tr>
+                <tr>
+                    <td>
+                        <label for="entreprises">Entreprise<div class="important">*</div> :</label>
+                    </td>
+                    <td>
+                        <select id="entreprises" required>
+                            <option th:each="entrepriseList : ${entrepriseList}" th:value="${entrepriseList}" th:text="${entrepriseList}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="etudiants">Etudiant<div class="important">*</div> :</label>
+                    </td>
+                    <td>
+                        <select id="etudiants" required>
+                            <option th:each="etudiantList : ${etudiantList}" th:value="${etudiantList}" th:text="${etudiantList}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="professeurs">Professeur<div class="important">*</div> :</label>
+                    </td>
+                    <td>
+                        <select id="professeurs" required>
+                            <option th:each="professeursList : ${professeursList}" th:value="${professeursList}" th:text="${professeursList}"></option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
         </fieldset>
+        <fieldset name="description">
+            <table>
+                <tr><th>Description du stage</th></tr>
+                <tr>
+                    <td>
+                        <label for="date_debut">Date de début du stage<div class="important">*</div> :</label>
+                    </td>
+                    <td>
+                        <input type="date" id="date_debut" placeholder="jj/mm/aaaa" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="date_fin">Date de fin du stage<div class="important">*</div> :</label>
+                    </td>
+                    <td>
+                        <input type="date" id="date_fin" placeholder="jj/mm/aaaa" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="type_stage">Type de stage<div class="important">*</div> :</label>
+                    </td>
+                    <td>
+                        <select id="type_stage" required>
+                            <option>Aucun</option>
+                            <option>Stage</option>
+                            <option>Alternance</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="description_projet">Description du projet :</label>
+                    </td>
+                    <td>
+                        <textarea id="description_projet"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="observations">Obervations :</label>
+                    </td>
+                    <td>
+                        <textarea id="observations"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <div class="aide">Les champs comportant le symbole <div class="important">*</div> sont obligatoire</div>
+        <input type="submit" value="Inscrire">
     </form>
-
   </div>
-
 </body>
 </html>
