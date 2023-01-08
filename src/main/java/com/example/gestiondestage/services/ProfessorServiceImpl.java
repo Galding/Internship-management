@@ -1,6 +1,8 @@
 package com.example.gestiondestage.services;
 
 import com.example.gestiondestage.repository.ProfessorRepository;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

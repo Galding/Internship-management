@@ -1,6 +1,10 @@
 package com.example.gestiondestage.controller;
 
 import com.example.gestiondestage.services.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +14,12 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
 public class MainController {
-
+    @Autowired
+    private CompanyService companyService;
+    @Autowired
+    private StudentService studentService;
+    @Autowired
+    private ProfessorService professorService;
 
     @RequestMapping(value = {"/index", "/"}, method = GET)
     public String index(Model model){
@@ -18,11 +27,8 @@ public class MainController {
     }
 
 
-    @RequestMapping(value = "/inscription", method = POST)
+    @RequestMapping(value = "/inscription", method = {POST, GET})
     public String inscription(Model model){
-        CompanyService companyService = new CompanyServiceImpl();
-        StudentService studentService = new StudentServiceImpl();
-        ProfessorService professorService = new ProfessorServiceImpl();
         model.addAttribute("entrepriseList", companyService.getCompaniesNames());
         model.addAttribute("etudiantList", studentService.getStudentsNames());
         model.addAttribute("professeursList", professorService.getProfessorsNames());
