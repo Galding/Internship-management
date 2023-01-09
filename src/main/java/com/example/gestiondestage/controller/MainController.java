@@ -34,4 +34,10 @@ public class MainController {
         model.addAttribute("professeursList", professorService.getProfessorsNames());
         return "inscription";
     }
+
+    @RequestMapping(value = "/entreprise", method = {POST, GET})
+    public String entreprise(Model model){
+        model.addAttribute("entrepriseList", companyService.getAllCompanies());
+        return "entreprise";
+    }
 }

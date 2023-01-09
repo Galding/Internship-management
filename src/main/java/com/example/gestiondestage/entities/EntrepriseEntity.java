@@ -3,6 +3,7 @@ package com.example.gestiondestage.entities;
 import javax.persistence.*;
 
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "entreprise", schema = "bdd_geststages")
@@ -50,6 +51,23 @@ public class EntrepriseEntity {
     @Basic
     @Column(name = "en_activite")
     private byte enActivite;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "spec_entreprise",
+            schema = "bdd_geststages",
+            joinColumns = @JoinColumn(name = "num_entreprise"),
+            inverseJoinColumns = @JoinColumn(name = "num_spec")
+    )
+    private Set<SpecialiteEntity> specialites;
+
+    public void setSpecialites(Set<SpecialiteEntity> specialites) {
+        this.specialites = specialites;
+    }
+
+    public Set<SpecialiteEntity> getSpecialites() {
+        return specialites;
+    }
 
     public int getNumEntreprise() {
         return numEntreprise;

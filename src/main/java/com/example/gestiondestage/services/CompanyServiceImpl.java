@@ -1,5 +1,6 @@
 package com.example.gestiondestage.services;
 
+import com.example.gestiondestage.entities.EntrepriseEntity;
 import com.example.gestiondestage.repository.CompanyRepository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,5 +18,10 @@ public class CompanyServiceImpl implements CompanyService{
     @Override
     public List<String> getCompaniesNames() {
         return companyRepository.findAllCompaniesName();
+    }
+
+    @Override
+    public List<EntrepriseEntity> getAllCompanies() {
+        return companyRepository.findAllCompanies();
     }
 }

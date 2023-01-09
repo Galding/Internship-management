@@ -14,4 +14,6 @@ public interface CompanyRepository extends JpaRepository<EntrepriseEntity, Integ
     List<String> findAllCompaniesName();
     @Query("SELECT e FROM EntrepriseEntity e WHERE e.numEntreprise = :id")
     EntrepriseEntity findbyId(int id);
+    @Query("SELECT e FROM EntrepriseEntity e")
+    List<EntrepriseEntity> findAllCompanies();
 }

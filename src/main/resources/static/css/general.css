@@ -154,6 +154,7 @@ article h2
 {
     color: red;
     font-weight: bold;
+    display: inline-block;
 }
 
 .deux_colonnes
@@ -203,6 +204,7 @@ article h2
 }
 
 #entreprise-main-content {
-    text-align: center;
     margin-top: 10%;
+    margin-left: 20%;
+    text-align: center;
 }

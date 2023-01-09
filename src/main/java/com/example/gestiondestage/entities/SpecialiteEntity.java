@@ -1,11 +1,13 @@
 package com.example.gestiondestage.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name = "specialite", schema = "bdd_geststages", catalog = "")
+@Table(name = "specialite", schema = "bdd_geststages")
 public class SpecialiteEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -14,6 +16,10 @@ public class SpecialiteEntity {
     @Basic
     @Column(name = "libelle")
     private String libelle;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "specialites")
+    private Set<EntrepriseEntity> entreprises;
 
     public int getNumSpec() {
         return numSpec;

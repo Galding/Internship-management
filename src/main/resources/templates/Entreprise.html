@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment( ~{::title}, ~{::script}, ~{:: #entreprise-main-content})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Entreprise</title>
+
+</head>
+<body>
+    <div id="entreprise-main-content">
+        <div class="large_bouton_operation">
+            <a class="icon_rechercher">Rechercher une entreprise</a>
+            <a class="icon_ajouter">Ajouter une entreprise</a>
+        </div>
+        <form action="/entreprise" method="post" class="list">
+            <fieldset>
+                <table>
+                    <tr>
+                        <th>Operation</th>
+                        <th>Entreprise</th>
+                        <th>Responsable</th>
+                        <th>Adresse</th>
+                        <th>Site</th>
+                        <th>Spécialité</th>
+                    </tr>
+
+                    <tr th:each="entrepriseItem : ${entrepriseList}">
+                        <td class="bouton_operation"><a class="icon_voir"></a><a class="icon_inscrire"></a></td>
+                        <td th:text="${entrepriseItem.raisonSociale}"></td>
+                        <td th:text="${entrepriseItem.nomResp}"></td>
+                        <td th:utext="${entrepriseItem.rueEntreprise} + '<br/>' +${entrepriseItem.villeEntreprise} + ' ' + ${entrepriseItem.cpEntreprise}"></td>
+                        <td class="bouton_operation"><a class="icon_website" th:href="${entrepriseItem.siteEntreprise}"></a> </td>
+                        <td><div th:each="spec : ${entrepriseItem.specialites}" th:text="${spec.libelle}"></div></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
