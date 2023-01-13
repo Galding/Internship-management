@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org"
-      th:fragment="main-fragment (title, otherStaticResources, mainContent)">
+      th:fragment="main-fragment (title, otherStaticResources, header, mainContent)">
 <head>
     <meta charset="UTF-8">
     <title th:replace="${title}">Stage BTS</title>
@@ -11,10 +11,11 @@
     <th:block th:replace="${otherStaticResources} ?: ~{}"></th:block>
 </head>
 <body>
-    <header>
+    <header th:insert="${header} ?: ~{}">
         <h2>Stage BTS</h2>
         <h3>Bienvenue sur la page de gestion des stages</h3>
         <div></div>
+        <hr>
     </header>
     <section>
         <nav>

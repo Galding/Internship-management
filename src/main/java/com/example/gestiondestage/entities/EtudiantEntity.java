@@ -10,7 +10,7 @@ import java.util.Objects;
 public class EtudiantEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "num_etudiant")
+    @Column(name = "num_etudiant", insertable = false, updatable = false)
     private int numEtudiant;
     @Basic
     @Column(name = "nom_etudiant")

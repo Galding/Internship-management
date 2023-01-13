@@ -194,6 +194,9 @@ article h2
     margin: 0px 10px 10px 0px;
 }
 
+.left {
+    text-align: left;
+}
 .aide
 {
     background-color: #CCFFCC;
@@ -204,7 +207,7 @@ article h2
 }
 
 #entreprise-main-content {
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 20%;
     text-align: center;
 }

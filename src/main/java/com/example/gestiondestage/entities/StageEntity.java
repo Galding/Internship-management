@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 import java.sql.Timestamp;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "stage", schema = "bdd_geststages", catalog = "")

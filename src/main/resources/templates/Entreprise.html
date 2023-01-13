@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{layouts/main-layout :: main-fragment( ~{::title}, ~{::script}, ~{:: #entreprise-main-content})}">
+      th:replace="~{layouts/main-layout :: main-fragment( ~{::title}, ~{::script},  ~{:: #page-header},~{:: #entreprise-main-content})}">
 <head>
     <meta charset="UTF-8">
     <title>Entreprise</title>
@@ -28,7 +28,7 @@
                     </thead>
                     <tbody>
                         <tr th:each="entrepriseItem : ${entrepriseList}">
-                            <td class="bouton_operation"><a class="icon_voir"></a><a class="icon_inscrire"></a></td>
+                            <td class="bouton_operation"><a class="icon_voir" th:href="@{/voirEntreprise(id=${entrepriseItem.numEntreprise})}"></a><a class="icon_inscrire" href="#"></a></td>
                             <td th:text="${entrepriseItem.raisonSociale}"></td>
                             <td th:text="${entrepriseItem.nomResp}"></td>
                             <td th:utext="${entrepriseItem.rueEntreprise} + '<br/>' +${entrepriseItem.villeEntreprise} + ' ' + ${entrepriseItem.cpEntreprise}"></td>

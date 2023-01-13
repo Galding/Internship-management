@@ -16,10 +16,5 @@ public class GestionDeStageApplication {
     public static void main(String[] args) {
         SpringApplication.run(GestionDeStageApplication.class, args);
     }
-/*    @Bean
-    public LocalSessionFactoryBean sessionFactory() {
-        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 
-        return sessionFactory;
-    }*/
 }

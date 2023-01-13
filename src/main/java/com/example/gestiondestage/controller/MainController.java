@@ -1,25 +1,30 @@
 package com.example.gestiondestage.controller;
 
+import com.example.gestiondestage.entities.StageEntity;
 import com.example.gestiondestage.services.*;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
 public class MainController {
     @Autowired
-    private CompanyService companyService;
+    private ICompanyService companyService;
     @Autowired
-    private StudentService studentService;
+    private IStudentService studentService;
     @Autowired
-    private ProfessorService professorService;
+    private IProfessorService professorService;
+
+    @Autowired
+    private IInternshipService internshipService;
 
     @RequestMapping(value = {"/index", "/"}, method = GET)
     public String index(Model model){
@@ -39,5 +44,12 @@ public class MainController {
     public String entreprise(Model model){
         model.addAttribute("entrepriseList", companyService.getAllCompanies());
         return "entreprise";
+    }
+
+    @RequestMapping(value = "/voirEntreprise", method = GET)
+    public String voirEntreprise(Model model, @RequestParam int id){
+        model.addAttribute("entreprise", companyService.getCompanyById(id));
+        model.addAttribute("stagesDesc", internshipService.getAllInternshipFromCompanyNumber(id));
+        return "voirEntreprise";
     }
 }
