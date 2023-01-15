@@ -34,6 +34,10 @@ public class EtudiantEntity {
     @Column(name = "en_activite")
     private byte enActivite;
 
+    @OneToOne
+    @JoinColumn(name = "num_etudiant")
+    private StageEntity stageEntity;
+
     public int getNumEtudiant() {
         return numEtudiant;
     }

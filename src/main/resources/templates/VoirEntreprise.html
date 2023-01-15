@@ -36,19 +36,21 @@
           <div> Specialitées : <div th:each="spec : ${entreprise.specialites}" th:text="${spec.libelle}"></div></div>
       </article>
       <hr>
-<h2>Stage</h2>
-      <table class="table">
-          <thead>
-                <tr><th>Operation</th><th>Etudiant</th><th>Projet</th></tr>
-          </thead>
-          <tbody>
-                <tr th:each="stage : ${stages}">
-                    <td></td>
-                    <td th:text="${stage.etudiantEntities}"></td>
-                    <td th:text="${stage.observationStage}"></td>
-                </tr>
-          </tbody>
-      </table>
+      <section class="list">
+          <h2>Stage</h2>
+          <table class="table left">
+              <thead>
+                    <tr><th>Operation</th><th>Etudiant</th><th>Projet</th></tr>
+              </thead>
+              <tbody>
+                    <tr th:each="stage : ${stages}">
+                        <td></td>
+                        <td th:text="${student.prenomEtudiant} + ' ' + ${student.nomEtudiant}"></td>
+                        <td th:utext="${stage.descProjet}"></td>
+                    </tr>
+              </tbody>
+          </table>
+      </section>
   </div>
 </body>
 </html>

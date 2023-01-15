@@ -38,6 +38,8 @@ public class StageEntity {
     @Column(name = "num_entreprise")
     private int numEntreprise;
 
+    @OneToOne(mappedBy = "stageEntity")
+    private EtudiantEntity etudiantEntity;
     public int getNumStage() {
         return numStage;
     }

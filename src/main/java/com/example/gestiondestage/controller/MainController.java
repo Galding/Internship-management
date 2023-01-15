@@ -1,6 +1,5 @@
 package com.example.gestiondestage.controller;
 
-import com.example.gestiondestage.entities.StageEntity;
 import com.example.gestiondestage.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,9 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.toList;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -49,7 +45,8 @@ public class MainController {
     @RequestMapping(value = "/voirEntreprise", method = GET)
     public String voirEntreprise(Model model, @RequestParam int id){
         model.addAttribute("entreprise", companyService.getCompanyById(id));
-        model.addAttribute("stagesDesc", internshipService.getAllInternshipFromCompanyNumber(id));
+        model.addAttribute("stages", internshipService.getAllInternshipFromCompanyId(id));
+        model.addAttribute("student", internshipService.getStudentNameForAnInternshipFromCompanyId(id));
         return "voirEntreprise";
     }
 }

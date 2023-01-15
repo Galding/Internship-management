@@ -1,5 +1,6 @@
 package com.example.gestiondestage.services;
 
+import com.example.gestiondestage.entities.EtudiantEntity;
 import com.example.gestiondestage.entities.StageEntity;
 import com.example.gestiondestage.repository.InternshipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,12 @@ public class InternshipService implements IInternshipService{
 
 
     @Override
-    public List<StageEntity> getAllInternshipFromCompanyNumber(int companyNumber) {
-        return repository.findAllInternshipFromACompanyId(companyNumber);
+    public List<StageEntity> getAllInternshipFromCompanyId(int companyId) {
+        return repository.findAllInternshipFromACompanyId(companyId);
+    }
+
+    @Override
+    public EtudiantEntity getStudentNameForAnInternshipFromCompanyId(int companyId) {
+        return repository.findStudentNameFromCompanyId(companyId);
     }
 }
