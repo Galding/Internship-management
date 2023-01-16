@@ -8,6 +8,10 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/tableau.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/formulaire.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/bouton.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+
     <th:block th:replace="${otherStaticResources} ?: ~{}"></th:block>
 </head>
 <body>
@@ -21,7 +25,7 @@
         <nav>
             <ul>
                 <li><a id="onglet_accueil" href="/">Accueil</a></li>
-                <li><a id="onglet_entreprise" href="/entreprise">Entreprise</a></li>
+                <li><a id="onglet_entreprise" href="/entreprise/listEntreprise">Entreprise</a></li>
                 <li><a id="onglet_stagiaire" href="#">Stagiaire</a></li>
                 <li><a id="onglet_inscrire" href="/inscription">Inscription</a></li>
                 <li><a id="onglet_aide" href="#">Aide</a></li>

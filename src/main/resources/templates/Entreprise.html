@@ -5,7 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Entreprise</title>
-
+    <th:block th:id="script">
+        <script type="text/javascript" rel="script" charset="utf8" th:src="@{/javascript/datatable_entreprise.js}"></script>
+    </th:block>
 </head>
 <body>
     <div id="entreprise-main-content">
@@ -16,24 +18,35 @@
         <hr>
         <form action="/entreprise" method="post" class="list">
             <fieldset>
-                <table>
+                <table id="companies_table">
                     <thead>
                         <tr>
                             <th>Operation</th>
                             <th>Entreprise</th>
+                            <th>Contact</th>
                             <th>Responsable</th>
                             <th>Adresse</th>
+                            <th>Téléphone</th>
+                            <th>Fax</th>
+                            <th>Observation</th>
                             <th>Site</th>
+                            <th>Niveau</th>
                             <th>Spécialité</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="entrepriseItem : ${entrepriseList}">
-                            <td class="bouton_operation"><a class="icon_voir" th:href="@{/voirEntreprise(id=${entrepriseItem.numEntreprise})}"></a><a class="icon_inscrire" href="#"></a></td>
+                            <td class="bouton_operation"><a class="icon_voir" th:href="@{/entreprise/voirEntreprise(id=${entrepriseItem.numEntreprise})}"></a><a class="icon_inscrire" href="#"></a></td>
                             <td th:text="${entrepriseItem.raisonSociale}"></td>
+                            <td th:text="${entrepriseItem.nomContact}"></td>
                             <td th:text="${entrepriseItem.nomResp}"></td>
                             <td th:utext="${entrepriseItem.rueEntreprise} + '<br/>' +${entrepriseItem.villeEntreprise} + ' ' + ${entrepriseItem.cpEntreprise}"></td>
+                            <td th:text="${entrepriseItem.telEntreprise}"></td>
+                            <td th:text="${entrepriseItem.faxEntreprise}"></td>
+                            <td th:text="${entrepriseItem.email}"></td>
+                            <td th:text="${entrepriseItem.observation}"></td>
                             <td class="bouton_operation"><a class="icon_website" th:href="${entrepriseItem.siteEntreprise}"></a> </td>
+                            <td th:text="${entrepriseItem.niveau}"></td>
                             <td><div th:each="spec : ${entrepriseItem.specialites}" th:text="${spec.libelle}"></div></td>
                         </tr>
                     </tbody>
