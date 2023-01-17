@@ -28,28 +28,15 @@
                             <th>Adresse</th>
                             <th>Téléphone</th>
                             <th>Fax</th>
+                            <th>Email</th>
                             <th>Observation</th>
                             <th>Site</th>
                             <th>Niveau</th>
                             <th>Spécialité</th>
+                            <th>En activité</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr th:each="entrepriseItem : ${entrepriseList}">
-                            <td class="bouton_operation"><a class="icon_voir" th:href="@{/entreprise/voirEntreprise(id=${entrepriseItem.numEntreprise})}"></a><a class="icon_inscrire" href="#"></a></td>
-                            <td th:text="${entrepriseItem.raisonSociale}"></td>
-                            <td th:text="${entrepriseItem.nomContact}"></td>
-                            <td th:text="${entrepriseItem.nomResp}"></td>
-                            <td th:utext="${entrepriseItem.rueEntreprise} + '<br/>' +${entrepriseItem.villeEntreprise} + ' ' + ${entrepriseItem.cpEntreprise}"></td>
-                            <td th:text="${entrepriseItem.telEntreprise}"></td>
-                            <td th:text="${entrepriseItem.faxEntreprise}"></td>
-                            <td th:text="${entrepriseItem.email}"></td>
-                            <td th:text="${entrepriseItem.observation}"></td>
-                            <td class="bouton_operation"><a class="icon_website" th:href="${entrepriseItem.siteEntreprise}"></a> </td>
-                            <td th:text="${entrepriseItem.niveau}"></td>
-                            <td><div th:each="spec : ${entrepriseItem.specialites}" th:text="${spec.libelle}"></div></td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </fieldset>
         </form>
