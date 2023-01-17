@@ -9,4 +9,8 @@ public interface ICompanyService {
     List<EntrepriseEntity> getAllCompanies();
 
     EntrepriseEntity getCompanyById(int id);
+
+    void removeCompanyById(int id);
+
+    void updateCompany(EntrepriseEntity entrepriseEntity);
 }

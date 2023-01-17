@@ -1,11 +1,14 @@
 package com.example.gestiondestage.entities;
 
 import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@AllArgsConstructor
 @Table(name = "entreprise", schema = "bdd_geststages")
 public class EntrepriseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,6 +63,10 @@ public class EntrepriseEntity {
             inverseJoinColumns = @JoinColumn(name = "num_spec")
     )
     private Set<SpecialiteEntity> specialites;
+
+    public EntrepriseEntity() {
+
+    }
 
     public void setSpecialites(Set<SpecialiteEntity> specialites) {
         this.specialites = specialites;
