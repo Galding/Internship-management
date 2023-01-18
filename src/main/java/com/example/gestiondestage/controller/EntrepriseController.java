@@ -74,7 +74,7 @@ public class EntrepriseController {
         });
         return new EntrepriseEntity(parseInt(getParam(params, "id")), getParam(params, "nom_entreprise"), getParam(params, "nom_contact"), getParam(params, "nom_resp"), getParam(params, "rue"),
                 parseInt(getParam(params, "cp")), getParam(params, "ville"), getParam(params, "tel"), getParam(params, "fax"), getParam(params, "email"), getParam(params, "observation"),
-        getParam(params, "site"), getParam(params, "niveau"), (byte) 1, selectedSpec);
+        getParam(params, "site"), getParam(params, "niveau"), (byte) 1, (Set<SpecialiteEntity>) selectedSpec);
     }
 
     private static String getParam(Map<String, String[]> params, String paramName) {

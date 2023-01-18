@@ -1,9 +1,11 @@
 package com.example.gestiondestage.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -54,15 +56,14 @@ public class EntrepriseEntity {
     @Basic
     @Column(name = "en_activite")
     private byte enActivite;
-
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinTable(
             name = "spec_entreprise",
             schema = "bdd_geststages",
             joinColumns = @JoinColumn(name = "num_entreprise"),
             inverseJoinColumns = @JoinColumn(name = "num_spec")
     )
-    private Set<SpecialiteEntity> specialites;
+    private Set<SpecialiteEntity> specialites = new HashSet<>();
 
     public EntrepriseEntity() {
 
