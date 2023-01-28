@@ -1,9 +1,7 @@
 package com.example.gestiondestage.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -56,7 +54,7 @@ public class EntrepriseEntity {
     @Basic
     @Column(name = "en_activite")
     private byte enActivite;
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(
             name = "spec_entreprise",
             schema = "bdd_geststages",
@@ -69,7 +67,7 @@ public class EntrepriseEntity {
 
     }
 
-    public void setSpecialites(Set<SpecialiteEntity> specialites) {
+    public void setSpecialites(final Set<SpecialiteEntity> specialites) {
         this.specialites = specialites;
     }
 
@@ -81,7 +79,7 @@ public class EntrepriseEntity {
         return numEntreprise;
     }
 
-    public void setNumEntreprise(int numEntreprise) {
+    public void setNumEntreprise(final int numEntreprise) {
         this.numEntreprise = numEntreprise;
     }
 
@@ -89,7 +87,7 @@ public class EntrepriseEntity {
         return raisonSociale;
     }
 
-    public void setRaisonSociale(String raisonSociale) {
+    public void setRaisonSociale(final String raisonSociale) {
         this.raisonSociale = raisonSociale;
     }
 
@@ -97,7 +95,7 @@ public class EntrepriseEntity {
         return nomContact;
     }
 
-    public void setNomContact(String nomContact) {
+    public void setNomContact(final String nomContact) {
         this.nomContact = nomContact;
     }
 
@@ -105,7 +103,7 @@ public class EntrepriseEntity {
         return nomResp;
     }
 
-    public void setNomResp(String nomResp) {
+    public void setNomResp(final String nomResp) {
         this.nomResp = nomResp;
     }
 
@@ -113,7 +111,7 @@ public class EntrepriseEntity {
         return rueEntreprise;
     }
 
-    public void setRueEntreprise(String rueEntreprise) {
+    public void setRueEntreprise(final String rueEntreprise) {
         this.rueEntreprise = rueEntreprise;
     }
 
@@ -121,7 +119,7 @@ public class EntrepriseEntity {
         return cpEntreprise;
     }
 
-    public void setCpEntreprise(Integer cpEntreprise) {
+    public void setCpEntreprise(final Integer cpEntreprise) {
         this.cpEntreprise = cpEntreprise;
     }
 
@@ -129,7 +127,7 @@ public class EntrepriseEntity {
         return villeEntreprise;
     }
 
-    public void setVilleEntreprise(String villeEntreprise) {
+    public void setVilleEntreprise(final String villeEntreprise) {
         this.villeEntreprise = villeEntreprise;
     }
 
@@ -137,7 +135,7 @@ public class EntrepriseEntity {
         return telEntreprise;
     }
 
-    public void setTelEntreprise(String telEntreprise) {
+    public void setTelEntreprise(final String telEntreprise) {
         this.telEntreprise = telEntreprise;
     }
 
@@ -145,7 +143,7 @@ public class EntrepriseEntity {
         return faxEntreprise;
     }
 
-    public void setFaxEntreprise(String faxEntreprise) {
+    public void setFaxEntreprise(final String faxEntreprise) {
         this.faxEntreprise = faxEntreprise;
     }
 
@@ -153,7 +151,7 @@ public class EntrepriseEntity {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
@@ -161,7 +159,7 @@ public class EntrepriseEntity {
         return observation;
     }
 
-    public void setObservation(String observation) {
+    public void setObservation(final String observation) {
         this.observation = observation;
     }
 
@@ -169,7 +167,7 @@ public class EntrepriseEntity {
         return siteEntreprise;
     }
 
-    public void setSiteEntreprise(String siteEntreprise) {
+    public void setSiteEntreprise(final String siteEntreprise) {
         this.siteEntreprise = siteEntreprise;
     }
 
@@ -177,7 +175,7 @@ public class EntrepriseEntity {
         return niveau;
     }
 
-    public void setNiveau(String niveau) {
+    public void setNiveau(final String niveau) {
         this.niveau = niveau;
     }
 
@@ -185,15 +183,15 @@ public class EntrepriseEntity {
         return enActivite;
     }
 
-    public void setEnActivite(byte enActivite) {
+    public void setEnActivite(final byte enActivite) {
         this.enActivite = enActivite;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EntrepriseEntity that = (EntrepriseEntity) o;
+        final EntrepriseEntity that = (EntrepriseEntity) o;
         return numEntreprise == that.numEntreprise && enActivite == that.enActivite && Objects.equals(raisonSociale, that.raisonSociale) && Objects.equals(nomContact, that.nomContact) && Objects.equals(nomResp, that.nomResp) && Objects.equals(rueEntreprise, that.rueEntreprise) && Objects.equals(cpEntreprise, that.cpEntreprise) && Objects.equals(villeEntreprise, that.villeEntreprise) && Objects.equals(telEntreprise, that.telEntreprise) && Objects.equals(faxEntreprise, that.faxEntreprise) && Objects.equals(email, that.email) && Objects.equals(observation, that.observation) && Objects.equals(siteEntreprise, that.siteEntreprise) && Objects.equals(niveau, that.niveau);
     }
 

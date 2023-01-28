@@ -8,157 +8,188 @@
 </head>
 <body>
 <div id="entreprise-main-content">
-    <form th:action="${modification} ? '/entreprise/postModification' : '/entreprise/postAjouter'" method="post" class="list">
+    <form th:action="${modification} ? '/entreprise/postModification' : '/entreprise/postAjouter'" method="post"
+          class="list">
         <input type="hidden" name="id" th:value="${entreprise.numEntreprise} ?: ${entreprise.numEntreprise}">
         <fieldset>
             <table>
                 <thead>
-                    <tr><th colspan="2">Information</th></tr>
+                <tr>
+                    <th colspan="2">Information</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <label for="nom_entreprise">Nom de l'entreprise<div class="important">*</div> :</label>
-                        </td>
-                        <td>
-                            <input type="text" id="nom_entreprise" name="nom_entreprise" th:value="${entreprise} ?: ${entreprise.raisonSociale}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="nom_contact">Nom du contact : </label>
-                        </td>
-                        <td>
-                            <input type="text" id="nom_contact" name="nom_resp" th:value="${entreprise.nomContact} ?: ${entreprise.nomContact}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="nom_resp">Nom du responsable : </label>
-                        </td>
-                        <td>
-                            <input type="text" id="nom_resp" name="nom_resp" th:value="${entreprise.nomResp} ?: ${entreprise.nomResp}">
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        <label for="raison_sociale">Nom de l'entreprise
+                            <div class="important">*</div>
+                            :</label>
+                    </td>
+                    <td>
+                        <input type="text" id="raison_sociale" name="raison_sociale"
+                               th:value="${entreprise.raisonSociale} ?: ~{}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="nom_contact">Nom du contact : </label>
+                    </td>
+                    <td>
+                        <input type="text" id="nom_contact" name="nom_contact"
+                               th:value="${entreprise.nomContact} ?: ~{}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="nom_resp">Nom du responsable : </label>
+                    </td>
+                    <td>
+                        <input type="text" id="nom_resp" name="nom_resp"
+                               th:value="${entreprise.nomResp} ?: ~{}">
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </fieldset>
         <fieldset>
             <table>
                 <thead>
-                    <tr>
-                        <th colspan="2">Contact</th>
-                    </tr>
+                <tr>
+                    <th colspan="2">Contact</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <label for="rue">Rue <div class="important">*</div></label>
-                        </td>
-                        <td>
-                            <input type="text" id="rue" name="rue" th:value="${entreprise.rueEntreprise} ?: ${entreprise.rueEntreprise}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="cp">Code postal <div class="important">*</div> : </label>
-                        </td>
-                        <td>
-                            <input type="text" id="cp" name="cp" th:value="${entreprise.cpEntreprise} ?: ${entreprise.cpEntreprise}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="ville">Ville <div class="important">*</div> : </label>
-                        </td>
-                        <td>
-                            <input type="text" id="ville" name="ville" th:value="${entreprise.villeEntreprise} ?: ${entreprise.villeEntreprise}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="tel">Téléphone<div class="important">*</div> : </label>
-                        </td>
-                        <td>
-                            <input type="tel" id="tel" name="tel" th:value="${entreprise.telEntreprise} ?: ${entreprise.telEntreprise}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="fax">Fax : </label>
-                        </td>
-                        <td>
-                            <input type="tel" id="fax" name="fax" th:value="${entreprise.faxEntreprise} ?: ${entreprise.faxEntreprise}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="email">Email : </label>
-                        </td>
-                        <td>
-                            <input type="email" id="email" name="email" th:value="${entreprise.email} ?: ${entreprise.email}">
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        <label for="rue">Rue
+                            <div class="important">*</div>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="rue" name="rue"
+                               th:value="${entreprise.rueEntreprise} ?: ~{}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="cp">Code postal
+                            <div class="important">*</div>
+                            : </label>
+                    </td>
+                    <td>
+                        <input type="text" id="cp" name="cp"
+                               th:value="${entreprise.cpEntreprise} ?: ~{}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="ville">Ville
+                            <div class="important">*</div>
+                            : </label>
+                    </td>
+                    <td>
+                        <input type="text" id="ville" name="ville"
+                               th:value="${entreprise.villeEntreprise} ?: ~{}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="tel">Téléphone
+                            <div class="important">*</div>
+                            : </label>
+                    </td>
+                    <td>
+                        <input type="tel" id="tel" name="tel"
+                               th:value="${entreprise.telEntreprise} ?: ~{}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="fax">Fax : </label>
+                    </td>
+                    <td>
+                        <input type="tel" id="fax" name="fax"
+                               th:value="${entreprise.faxEntreprise} ?: ~{}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">Email : </label>
+                    </td>
+                    <td>
+                        <input type="email" id="email" name="email"
+                               th:value="${entreprise.email} ?: ~{}">
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </fieldset>
         <fieldset>
             <table>
                 <thead>
-                    <tr>
-                        <th colspan="2">Divers</th>
-                    </tr>
+                <tr>
+                    <th colspan="2">Divers</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <label for="observation">Observation : </label>
-                        </td>
-                        <td>
-                            <textarea rows="2" id="observation" name="observation" th:value="${entreprise.observation} ?: ${entreprise.observation}"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="site">Url du site : </label>
-                        </td>
-                        <td>
-                            <input type="url" id="site" name="site" th:value="${entreprise.siteEntreprise} ?: ${entreprise.siteEntreprise}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="niveau">Niveau<div class="important">*</div> : </label>
-                        </td>
-                        <td>
-                            <input type="text" id="niveau" name="niveau" th:value="${entreprise.niveau} ?: ${entreprise.niveau}">
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        <label for="observation">Observation : </label>
+                    </td>
+                    <td>
+                        <textarea rows="2" id="observation" name="observation"
+                                  th:value="${entreprise.observation} ?: ~{}"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="site">Url du site : </label>
+                    </td>
+                    <td>
+                        <input type="url" id="site" name="site"
+                               th:value="${entreprise.siteEntreprise} ?: ~{}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="niveau">Niveau
+                            <div class="important">*</div>
+                            : </label>
+                    </td>
+                    <td>
+                        <input type="text" id="niveau" name="niveau"
+                               th:value="${entreprise.niveau} ?: ~{}">
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </fieldset>
         <fieldset>
             <table>
                 <thead>
-                    <tr>
-                        <th colspan="2">Spécialité</th>
-                    </tr>
+                <tr>
+                    <th colspan="2">Spécialité</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <label for="specialite">Spécialité : </label>
-                        </td>
-                        <td>
-                            <select id="specialite" name="specialite" multiple>
-                                <option th:each="spec : ${specialitesList}" th:value="${spec.libelle}" th:text="${spec.libelle}"></option>
-                            </select>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        <label for="specialite">Spécialité : </label>
+                    </td>
+                    <td>
+                        <select id="specialite" name="specialite" multiple>
+                            <option th:each="spec : ${specialitesList}" th:value="${spec.libelle}"
+                                    th:text="${spec.libelle}"></option>
+                        </select>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </fieldset>
-        <div class="aide">Les champs comportant le symbole <div class="important">*</div> sont obligatoire</div>
+        <div class="aide">Les champs comportant le symbole
+            <div class="important">*</div>
+            sont obligatoire
+        </div>
         <input type="submit" th:value="${modification} ? 'Modifier' : 'Ajouter'">
     </form>
 </div>

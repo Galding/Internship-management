@@ -13,7 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 import static java.lang.Integer.parseInt;
 import static java.util.Arrays.stream;
@@ -31,13 +34,14 @@ public class EntrepriseController {
 
     @Autowired
     private ISpecialityService specialityService;
+
     @RequestMapping(value = "/listEntreprise", method = {POST, GET})
-    public String listEntreprise(Model model){
+    public String listEntreprise(final Model model) {
         return "entreprise";
     }
 
     @RequestMapping(value = "/voirEntreprise", method = GET)
-    public String voirEntreprise(Model model, @RequestParam int id){
+    public String voirEntreprise(final Model model, @RequestParam final int id) {
         model.addAttribute("entreprise", companyService.getCompanyById(id));
         model.addAttribute("stages", internshipService.getAllInternshipFromCompanyId(id));
         model.addAttribute("student", internshipService.getStudentNameForAnInternshipFromCompanyId(id));
@@ -45,13 +49,13 @@ public class EntrepriseController {
     }
 
     @RequestMapping(value = "/supprimerEntreprise")
-    public String supprimerEntreprise(@RequestParam int id){
+    public String supprimerEntreprise(@RequestParam final int id) {
         companyService.removeCompanyById(id);
         return "entreprise";
     }
 
     @RequestMapping(value = "/modifierEntreprise")
-    public String modifierEntreprise(Model model, @RequestParam int id){
+    public String modifierEntreprise(final Model model, @RequestParam final int id) {
         model.addAttribute("entreprise", companyService.getCompanyById(id));
         model.addAttribute("specialitesList", specialityService.getAllSpeciality());
         model.addAttribute("modification", true);
@@ -59,30 +63,33 @@ public class EntrepriseController {
     }
 
     @RequestMapping(value = "/postModification", method = POST)
-    public String postModif(HttpServletRequest request){
+    public String postModif(final HttpServletRequest request) {
         companyService.updateCompany(parseParam(request));
         return "entreprise";
     }
 
-    private EntrepriseEntity parseParam(HttpServletRequest request) {
-        Map<String, String[]> params = request.getParameterMap();
-        Set<SpecialiteEntity> selectedSpec = new HashSet<>();
+    private EntrepriseEntity parseParam(final HttpServletRequest request) {
+        final Map<String, String[]> params = request.getParameterMap();
+        final Set<SpecialiteEntity> selectedSpec = new HashSet<>();
         specialityService.getAllSpeciality().forEach(spec -> {
-            if(stream(params.get("specialite")).anyMatch(s -> s.equals(spec.getLibelle()))){
+            final String[] specialites = params.get("specialite");
+            if (specialites != null && stream(specialites).anyMatch(s -> s.equals(spec.getLibelle()))) {
                 selectedSpec.add(spec);
             }
         });
-        return new EntrepriseEntity(parseInt(getParam(params, "id")), getParam(params, "nom_entreprise"), getParam(params, "nom_contact"), getParam(params, "nom_resp"), getParam(params, "rue"),
+        return new EntrepriseEntity(parseInt(getParam(params, "id")), getParam(params, "raison_sociale"), getParam(params, "nom_contact"), getParam(params, "nom_resp"), getParam(params, "rue"),
                 parseInt(getParam(params, "cp")), getParam(params, "ville"), getParam(params, "tel"), getParam(params, "fax"), getParam(params, "email"), getParam(params, "observation"),
-        getParam(params, "site"), getParam(params, "niveau"), (byte) 1, (Set<SpecialiteEntity>) selectedSpec);
+                getParam(params, "site"), getParam(params, "niveau"), (byte) 1, selectedSpec);
     }
 
-    private static String getParam(Map<String, String[]> params, String paramName) {
+    private static String getParam(final Map<String, String[]> params, final String paramName) {
         return params.containsKey(paramName) ? params.get(paramName)[0] : "";
     }
 
     @RequestMapping(value = "/data", method = GET)
     public ResponseEntity<HashMap<String, Iterable<EntrepriseEntity>>> dataList() {
-        return ResponseEntity.ok().body(new HashMap<>(){{put("data", companyService.getAllCompanies());}});
+        return ResponseEntity.ok().body(new HashMap<>() {{
+            put("data", companyService.getAllCompanies());
+        }});
     }
 }
