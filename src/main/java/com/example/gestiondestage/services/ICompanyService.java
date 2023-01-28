@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ICompanyService {
     List<String> getCompaniesNames();
+
     List<EntrepriseEntity> getAllCompanies();
 
     EntrepriseEntity getCompanyById(int id);
@@ -13,4 +14,6 @@ public interface ICompanyService {
     void removeCompanyById(int id);
 
     void updateCompany(EntrepriseEntity entrepriseEntity);
+
+    EntrepriseEntity getCompanyFromStudentId(int studentId);
 }

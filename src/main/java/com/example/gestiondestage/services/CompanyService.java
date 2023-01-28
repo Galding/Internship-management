@@ -55,4 +55,9 @@ public class CompanyService implements ICompanyService {
         session.merge(entrepriseEntity);
         tx.commit();
     }
+
+    @Override
+    public EntrepriseEntity getCompanyFromStudentId(final int studentId) {
+        return companyRepository.findCompanyFromStudentId(studentId);
+    }
 }

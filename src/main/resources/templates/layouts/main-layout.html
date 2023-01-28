@@ -8,33 +8,35 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/tableau.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/formulaire.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/bouton.css}">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/datatables.min.css"/>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/datatables.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/datatables.min.css"/>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/datatables.min.js"></script>
     <th:block th:replace="${otherStaticResources} ?: ~{}"></th:block>
 </head>
 <body>
-    <header th:insert="${header} ?: ~{}">
-        <h2>Stage BTS</h2>
-        <h3>Bienvenue sur la page de gestion des stages</h3>
-        <div></div>
-        <hr>
-    </header>
-    <section>
-        <nav>
-            <ul>
-                <li><a id="onglet_accueil" href="/">Accueil</a></li>
-                <li><a id="onglet_entreprise" href="/entreprise/listEntreprise">Entreprise</a></li>
-                <li><a id="onglet_stagiaire" href="#">Stagiaire</a></li>
-                <li><a id="onglet_inscrire" href="/inscription">Inscription</a></li>
-                <li><a id="onglet_aide" href="#">Aide</a></li>
-                <li><a href="#">Déconnexion</a></li>
-            </ul>
-        </nav>
-        <div id="main-content" th:insert="${mainContent} ?: ~{}"></div>
+<header th:insert="${header} ?: ~{}">
+    <h2>Stage BTS</h2>
+    <h3>Bienvenue sur la page de gestion des stages</h3>
+    <div></div>
+    <hr>
+</header>
+<section>
+    <nav>
+        <ul>
+            <li><a id="onglet_accueil" href="/">Accueil</a></li>
+            <li><a id="onglet_entreprise" href="/entreprise/listEntreprise">Entreprise</a></li>
+            <li><a id="onglet_stagiaire" href="/student/studentList">Stagiaire</a></li>
+            <li><a id="onglet_inscrire" href="/inscription">Inscription</a></li>
+            <li><a id="onglet_aide" href="#">Aide</a></li>
+            <li><a href="#">Déconnexion</a></li>
+        </ul>
+    </nav>
+    <div id="main-content" th:insert="${mainContent} ?: ~{}"></div>
 
-    </section>
-    <footer>
-        <p>Footer</p>
-    </footer>
+</section>
+<footer>
+    <p>Footer</p>
+</footer>
 </body>
 </html>

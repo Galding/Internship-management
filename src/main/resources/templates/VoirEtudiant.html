@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment( ~{::title}, ~{::script}, ~{:: #page-header},~{:: #entreprise-main-content})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Voir un étudiant</title>
+</head>
+<body>
+<header id="page-header">
+    <h1 th:text="'Fiche de ' + ${student.nomEtudiant} + ' ' + ${student.prenomEtudiant}"></h1>
+    <hr>
+</header>
+<h2>Entrée</h2>
+<div id="entreprise-main-content">
+    <article class="information left">
+        <h2>Informations générales</h2>
+        <div th:text="'Nom de l\'etudiant : ' + ${student.nomEtudiant}"></div>
+        <div th:text="'Prénom de l\'etudiant : ' + ${student.prenomEtudiant}"></div>
+        <div th:text="'Année d\'obtention : ' + ${student.anneeObtention == null ? ~{} : student.anneeObtention}"></div>
+        <div th:text="'Login : ' + ${student.login}"></div>
+        <div th:text="'Numero de classe : ' + ${student.numClasse}"></div>
+        <div th:text="'En activite : ' + ${student.enActivite == 1 ? 'OUI' : 'NON'}"></div>
+    </article>
+    <article class="information left">
+        <h2>Stage</h2>
+        <div th:text="'Date de début du stage : ' + ${internship.getDebutStage()}"></div>
+        <div th:text="'Date de fin du stage : ' + ${internship.getFinStage()}"></div>
+        <div th:text="'Raison sociale de l\'entreprise : ' + ${company.raisonSociale}"></div>
+        <div th:text="'Type de stage : ' + ${internship.getTypeStage()}"></div>
+        <div th:utext="'Description du stage : ' + ${internship.getDescProjet()}"></div>
+        <div th:text="'Observation stage : ' + ${internship.getObservationStage()}"></div>
+    </article>
+</div>
+</body>
+</html>

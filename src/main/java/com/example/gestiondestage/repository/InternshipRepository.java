@@ -17,4 +17,7 @@ public interface InternshipRepository extends JpaRepository<StageEntity, Integer
     @Query("SELECT e from StageEntity s JOIN EtudiantEntity e ON s.numEtudiant=e.numEtudiant WHERE s.numEntreprise = :numEntreprise")
     EtudiantEntity findStudentNameFromCompanyId(int numEntreprise);
 
+    @Query("SELECT s FROM StageEntity s WHERE s.numEtudiant = :studentId")
+    StageEntity findInternshipFromStudentId(int studentId);
+
 }

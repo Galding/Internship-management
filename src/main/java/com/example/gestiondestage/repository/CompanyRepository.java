@@ -23,4 +23,7 @@ public interface CompanyRepository extends JpaRepository<EntrepriseEntity, Integ
     @Query("DELETE FROM EntrepriseEntity e WHERE e.numEntreprise = :id ")
     void removeById(int id);
 
+    @Query("SELECT e FROM EntrepriseEntity e JOIN StageEntity s ON e.numEntreprise=s.numEntreprise WHERE s.numEtudiant = :studentId ")
+    EntrepriseEntity findCompanyFromStudentId(int studentId);
+
 }

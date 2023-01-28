@@ -10,4 +10,6 @@ public interface IInternshipService {
     List<StageEntity> getAllInternshipFromCompanyId(int companyId);
 
     EtudiantEntity getStudentNameForAnInternshipFromCompanyId(int companyId);
+
+    StageEntity getInternshipFromStudendId(int studentId);
 }
