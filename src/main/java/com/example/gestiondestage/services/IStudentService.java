@@ -12,4 +12,10 @@ public interface IStudentService {
     EtudiantEntity getStudentById(int id);
 
     void removeStudent(int id);
+
+    int getLastAvailableId();
+
+    void updateStudent(EtudiantEntity student);
+
+    void addStudent(EtudiantEntity student);
 }

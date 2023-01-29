@@ -1,12 +1,14 @@
 package com.example.gestiondestage.entities;
 
 import javax.persistence.*;
+import lombok.AllArgsConstructor;
 
 import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "etudiant", schema = "bdd_geststages", catalog = "")
+@AllArgsConstructor
+@Table(name = "etudiant", schema = "bdd_geststages")
 public class EtudiantEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -37,6 +39,9 @@ public class EtudiantEntity {
     @OneToOne
     @JoinColumn(name = "num_etudiant")
     private StageEntity stageEntity;
+
+    public EtudiantEntity() {
+    }
 
     public int getNumEtudiant() {
         return numEtudiant;

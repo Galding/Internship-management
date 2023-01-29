@@ -28,7 +28,8 @@
                     </td>
                     <td>
                         <input type="text" id="raison_sociale" name="raison_sociale"
-                               th:value="${entreprise != null && entreprise.raisonSociale != null} ? ${entreprise.raisonSociale} : ''">
+                               th:value="${entreprise != null && entreprise.raisonSociale != null} ? ${entreprise.raisonSociale} : ''"
+                               required>
                     </td>
                 </tr>
                 <tr>
@@ -68,7 +69,8 @@
                     </td>
                     <td>
                         <input type="text" id="rue" name="rue"
-                               th:value="${entreprise != null && entreprise.rueEntreprise != null} ? ${entreprise.rueEntreprise} : ''">
+                               th:value="${entreprise != null && entreprise.rueEntreprise != null} ? ${entreprise.rueEntreprise} : ''"
+                               required>
                     </td>
                 </tr>
                 <tr>
@@ -79,7 +81,8 @@
                     </td>
                     <td>
                         <input type="text" id="cp" name="cp"
-                               th:value="${entreprise != null && entreprise.cpEntreprise != null} ? ${entreprise.cpEntreprise} : ''">
+                               th:value="${entreprise != null && entreprise.cpEntreprise != null} ? ${entreprise.cpEntreprise} : ''"
+                               required>
                     </td>
                 </tr>
                 <tr>
@@ -90,7 +93,8 @@
                     </td>
                     <td>
                         <input type="text" id="ville" name="ville"
-                               th:value="${entreprise != null && entreprise.villeEntreprise != null} ? ${entreprise.villeEntreprise}: ''">
+                               th:value="${entreprise != null && entreprise.villeEntreprise != null} ? ${entreprise.villeEntreprise}: ''"
+                               required>
                     </td>
                 </tr>
                 <tr>
@@ -101,7 +105,8 @@
                     </td>
                     <td>
                         <input type="tel" id="tel" name="tel"
-                               th:value="${entreprise != null && entreprise.telEntreprise != null} ? ${entreprise.telEntreprise} : ''">
+                               th:value="${entreprise != null && entreprise.telEntreprise != null} ? ${entreprise.telEntreprise} : ''"
+                               required>
                     </td>
                 </tr>
                 <tr>
@@ -159,7 +164,8 @@
                     </td>
                     <td>
                         <input type="text" id="niveau" name="niveau"
-                               th:value="${entreprise != null && entreprise.niveau != null} ? ${entreprise.niveau} : ''">
+                               th:value="${entreprise != null && entreprise.niveau != null} ? ${entreprise.niveau} : ''"
+                               required>
                     </td>
                 </tr>
                 </tbody>

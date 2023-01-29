@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
 
+import static com.example.gestiondestage.Utils.getParamFromParameterMap;
 import static java.lang.Integer.parseInt;
 import static java.util.Arrays.stream;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -91,15 +92,12 @@ public class EntrepriseController {
                 selectedSpec.add(spec);
             }
         });
-        final int id = Stream.of(getParam(params, "id")).filter(str -> !str.equals("")).map(Integer::parseInt).findFirst().orElse(companyService.getLastAvailableId());
-        return new EntrepriseEntity(id, getParam(params, "raison_sociale"), getParam(params, "nom_contact"), getParam(params, "nom_resp"), getParam(params, "rue"),
-                parseInt(getParam(params, "cp")), getParam(params, "ville"), getParam(params, "tel"), getParam(params, "fax"), getParam(params, "email"), getParam(params, "observation"),
-                getParam(params, "site"), getParam(params, "niveau"), (byte) 1, selectedSpec);
+        final int id = Stream.of(getParamFromParameterMap(params, "id")).filter(str -> !str.equals("")).map(Integer::parseInt).findFirst().orElse(companyService.getLastAvailableId());
+        return new EntrepriseEntity(id, getParamFromParameterMap(params, "raison_sociale"), getParamFromParameterMap(params, "nom_contact"), getParamFromParameterMap(params, "nom_resp"), getParamFromParameterMap(params, "rue"),
+                parseInt(getParamFromParameterMap(params, "cp")), getParamFromParameterMap(params, "ville"), getParamFromParameterMap(params, "tel"), getParamFromParameterMap(params, "fax"), getParamFromParameterMap(params, "email"), getParamFromParameterMap(params, "observation"),
+                getParamFromParameterMap(params, "site"), getParamFromParameterMap(params, "niveau"), (byte) 1, selectedSpec);
     }
 
-    private static String getParam(final Map<String, String[]> params, final String paramName) {
-        return params.containsKey(paramName) ? params.get(paramName)[0] : "";
-    }
 
     @RequestMapping(value = "/data", method = GET)
     public ResponseEntity<HashMap<String, Iterable<EntrepriseEntity>>> dataList() {

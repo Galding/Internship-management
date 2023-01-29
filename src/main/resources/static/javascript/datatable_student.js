@@ -28,7 +28,7 @@ $(document).ready(function () {
                 data: null,
                 render: function (data, type, row) {
                     return `<div class="bouton_operation">
-                        <a href="#" class="icon_modifier"></a>
+                        <a href="/student/modifierEtudiant?id=${row.numEtudiant}" class="icon_modifier"></a>
                         <a href="/student/supprimerEtudiant?id=${row.numEtudiant}" class="icon_supprimer"></a>
                     </div>`
                 },

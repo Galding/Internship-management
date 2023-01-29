@@ -24,4 +24,7 @@ public interface StudentRepository extends JpaRepository<EtudiantEntity, Integer
     @Transactional
     @Query("DELETE FROM EtudiantEntity e WHERE e.numEtudiant = :id")
     void removeById(int id);
+
+    @Query("SELECT max(e.numEtudiant) FROM EtudiantEntity e")
+    int findLastAvailableId();
 }

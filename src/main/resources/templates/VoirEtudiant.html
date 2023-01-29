@@ -21,15 +21,18 @@
         <div th:text="'Numero de classe : ' + ${student.numClasse}"></div>
         <div th:text="'En activite : ' + ${student.enActivite == 1 ? 'OUI' : 'NON'}"></div>
     </article>
-    <article class="information left">
-        <h2>Stage</h2>
-        <div th:text="'Date de début du stage : ' + ${internship.getDebutStage()}"></div>
-        <div th:text="'Date de fin du stage : ' + ${internship.getFinStage()}"></div>
-        <div th:text="'Raison sociale de l\'entreprise : ' + ${company.raisonSociale}"></div>
-        <div th:text="'Type de stage : ' + ${internship.getTypeStage()}"></div>
-        <div th:utext="'Description du stage : ' + ${internship.getDescProjet()}"></div>
-        <div th:text="'Observation stage : ' + ${internship.getObservationStage()}"></div>
-    </article>
+
+    <th:block th:if="${internship != null}">
+        <article class="information left">
+            <h2>Stage</h2>
+            <div th:text="'Date de début du stage : ' + ${internship.getDebutStage()}"></div>
+            <div th:text="'Date de fin du stage : ' + ${internship.getFinStage()}"></div>
+            <div th:text="'Raison sociale de l\'entreprise : ' + ${company.raisonSociale}"></div>
+            <div th:text="'Type de stage : ' + ${internship.getTypeStage()}"></div>
+            <div th:utext="'Description du stage : ' + ${internship.getDescProjet()}"></div>
+            <div th:text="'Observation stage : ' + ${internship.getObservationStage()}"></div>
+        </article>
+    </th:block>
 </div>
 </body>
 </html>

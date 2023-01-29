@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment( ~{::title}, ~{::script},  ~{:: #page-header},~{:: #entreprise-main-content})}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${modification} ? 'Modification d\'etudiant' : 'Création d\'etudiant'"></title>
+</head>
+<body>
+<div id="entreprise-main-content">
+    <form th:action="${modification} ? '/student/postModification' : '/student/postAjout'" method="post" class="list">
+        <input type="hidden" name="id"
+               th:value="${student != null && student.numEtudiant != null} ? ${student.numEtudiant} : ''">
+        <fieldset>
+            <table>
+                <thead>
+                <tr>
+                    <th colspan="2">Informations concernant l'étudiant</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <label for="nom_etudiant">Nom
+                            <div class="important">*</div>
+                            :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="nom_etudiant" name="nom_etudiant"
+                               th:value="${student != null && student.nomEtudiant != null} ? ${student.nomEtudiant} : ''"
+                               required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="prenom_etudiant">Prénom
+                            <div class="important">*</div>
+                            :
+                            :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="prenom_etudiant" name="prenom_etudiant"
+                               th:value="${student != null && student.prenomEtudiant != null} ? ${student.prenomEtudiant} : ''"
+                               required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="login">Nom d'utilisateur (8 caracteres)
+                            <div class="important">*</div>
+                            :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" id="login" name="login"
+                               th:value="${student != null && student.login != null} ? ${student.login} : ''" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="mdp">Mot de passe (entre 8 et 30 carateres)
+                            <div class="important">*</div>
+                            :
+                        </label>
+                    </td>
+                    <td>
+                        <input type="password" maxlength="30" minlength="8" id="mdp" name="mdp"
+                               th:value="${student != null && student.mdp != null} ? ${student.mdp} : ''" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="date_obention">Date d'obtention du BTS (JJ-MM-AAAA) : </label>
+                    </td>
+                    <td>
+                        <input type="date" id="date_obention" name="date_obtention"
+                               th:value="${student != null && student.anneeObtention != null} ? ${student.anneeObtention} : ''">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="classe">Classe
+                            <div class="important">*</div>
+                            :
+                        </label>
+                    </td>
+                    <td>
+                        <select id="classe" name="classe">
+                            <option th:each="classe : ${classes}" th:value="${classe.numClasse}"
+                                    th:text="${classe.nomClasse}"></option>
+                        </select>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <div class="aide">Les champs comportant le symbole
+            <div class="important">*</div>
+            sont obligatoire
+        </div>
+        <input type="submit" th:value="${modification} ? 'Modifier' : 'Ajouter'">
+    </form>
+</div>
+</body>
+</html>
