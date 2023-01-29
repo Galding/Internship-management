@@ -29,7 +29,7 @@ $(document).ready(function () {
                 render: function (data, type, row) {
                     return `<div class="bouton_operation">
                         <a href="#" class="icon_modifier"></a>
-                        <a href="#" class="icon_supprimer"></a>
+                        <a href="/student/supprimerEtudiant?id=${row.numEtudiant}" class="icon_supprimer"></a>
                     </div>`
                 },
                 visible: true,
@@ -37,27 +37,27 @@ $(document).ready(function () {
                 searchable: false
             },
             {
-                data: 'nomEtudiant',
+                data: 'students.nomEtudiant',
                 searchable: true,
                 visible: true
             },
             {
-                data: 'prenomEtudiant',
+                data: 'students.prenomEtudiant',
                 searchable: true,
                 visible: false
             },
             {
-                data: 'anneeObtention',
+                data: 'students.anneeObtention',
                 searchable: true,
                 visible: false
             },
             {
-                data: 'numClasse',
+                data: 'students.numClasse',
                 searchable: true,
                 visible: false
             },
             {
-                data: 'enActivite',
+                data: 'students.enActivite',
                 searchable: true,
                 visible: false
             },

@@ -42,7 +42,7 @@ public class EtudiantEntity {
         return numEtudiant;
     }
 
-    public void setNumEtudiant(int numEtudiant) {
+    public void setNumEtudiant(final int numEtudiant) {
         this.numEtudiant = numEtudiant;
     }
 
@@ -50,7 +50,7 @@ public class EtudiantEntity {
         return nomEtudiant;
     }
 
-    public void setNomEtudiant(String nomEtudiant) {
+    public void setNomEtudiant(final String nomEtudiant) {
         this.nomEtudiant = nomEtudiant;
     }
 
@@ -58,7 +58,7 @@ public class EtudiantEntity {
         return prenomEtudiant;
     }
 
-    public void setPrenomEtudiant(String prenomEtudiant) {
+    public void setPrenomEtudiant(final String prenomEtudiant) {
         this.prenomEtudiant = prenomEtudiant;
     }
 
@@ -66,7 +66,7 @@ public class EtudiantEntity {
         return anneeObtention;
     }
 
-    public void setAnneeObtention(Date anneeObtention) {
+    public void setAnneeObtention(final Date anneeObtention) {
         this.anneeObtention = anneeObtention;
     }
 
@@ -74,7 +74,7 @@ public class EtudiantEntity {
         return login;
     }
 
-    public void setLogin(String login) {
+    public void setLogin(final String login) {
         this.login = login;
     }
 
@@ -82,7 +82,7 @@ public class EtudiantEntity {
         return mdp;
     }
 
-    public void setMdp(String mdp) {
+    public void setMdp(final String mdp) {
         this.mdp = mdp;
     }
 
@@ -90,7 +90,7 @@ public class EtudiantEntity {
         return numClasse;
     }
 
-    public void setNumClasse(int numClasse) {
+    public void setNumClasse(final int numClasse) {
         this.numClasse = numClasse;
     }
 
@@ -98,15 +98,15 @@ public class EtudiantEntity {
         return enActivite;
     }
 
-    public void setEnActivite(byte enActivite) {
+    public void setEnActivite(final byte enActivite) {
         this.enActivite = enActivite;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EtudiantEntity that = (EtudiantEntity) o;
+        final EtudiantEntity that = (EtudiantEntity) o;
         return numEtudiant == that.numEtudiant && numClasse == that.numClasse && enActivite == that.enActivite && Objects.equals(nomEtudiant, that.nomEtudiant) && Objects.equals(prenomEtudiant, that.prenomEtudiant) && Objects.equals(anneeObtention, that.anneeObtention) && Objects.equals(login, that.login) && Objects.equals(mdp, that.mdp);
     }
 

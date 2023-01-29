@@ -1,5 +1,6 @@
 package com.example.gestiondestage.services;
 
+import com.example.gestiondestage.entities.ProfesseurEntity;
 import com.example.gestiondestage.repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,5 +15,10 @@ public class ProfessorService implements IProfessorService {
     @Override
     public List<String> getProfessorsNames() {
         return professorRepository.findAllProfessorsNames();
+    }
+
+    @Override
+    public List<ProfesseurEntity> getAllProfessors() {
+        return professorRepository.findAll();
     }
 }

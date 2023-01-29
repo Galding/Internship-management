@@ -3,6 +3,7 @@ package com.example.gestiondestage.controller;
 import com.example.gestiondestage.entities.EtudiantEntity;
 import com.example.gestiondestage.services.ICompanyService;
 import com.example.gestiondestage.services.IInternshipService;
+import com.example.gestiondestage.services.IProfessorService;
 import com.example.gestiondestage.services.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,9 @@ public class StudentController {
     @Autowired
     ICompanyService companyService;
 
+    @Autowired
+    IProfessorService professorService;
+
     @RequestMapping("/studentList")
     public String studentList() {
         return "etudiant";
@@ -41,10 +45,23 @@ public class StudentController {
         return "VoirEtudiant";
     }
 
+    @RequestMapping(value = "/supprimerEtudiant")
+    public String supprimerEtudiant(final Model model, @RequestParam final int id) {
+        studentService.removeStudent(id);
+        return "etudiant";
+    }
+
     @RequestMapping(value = "/data", method = GET)
+
     public ResponseEntity<HashMap<String, Iterable<EtudiantEntity>>> dataList() {
+        /*final Map<String, List<?>> data = new HashMap<>();
+        data.put("students", studentService.getAllStudents());
+        data.put("companies", companyService.getAllCompanies());
+        data.put("teachers", professorService.getAllProfessors());*/
         return ResponseEntity.ok().body(new HashMap<>() {{
             put("data", studentService.getAllStudents());
         }});
     }
+
+
 }

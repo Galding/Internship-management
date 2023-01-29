@@ -16,7 +16,7 @@
         <h2>Informations générales</h2>
         <div th:text="'Nom de l\'etudiant : ' + ${student.nomEtudiant}"></div>
         <div th:text="'Prénom de l\'etudiant : ' + ${student.prenomEtudiant}"></div>
-        <div th:text="'Année d\'obtention : ' + ${student.anneeObtention == null ? ~{} : student.anneeObtention}"></div>
+        <div th:text="'Année d\'obtention : ' + ${student.anneeObtention == null ? '' : student.anneeObtention}"></div>
         <div th:text="'Login : ' + ${student.login}"></div>
         <div th:text="'Numero de classe : ' + ${student.numClasse}"></div>
         <div th:text="'En activite : ' + ${student.enActivite == 1 ? 'OUI' : 'NON'}"></div>

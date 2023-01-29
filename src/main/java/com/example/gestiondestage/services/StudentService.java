@@ -26,4 +26,9 @@ public class StudentService implements IStudentService {
     public EtudiantEntity getStudentById(final int id) {
         return studentRepository.findById(id);
     }
+
+    @Override
+    public void removeStudent(final int id) {
+        studentRepository.removeById(id);
+    }
 }

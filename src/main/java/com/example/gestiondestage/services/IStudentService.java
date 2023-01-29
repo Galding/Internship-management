@@ -10,4 +10,6 @@ public interface IStudentService {
     List<EtudiantEntity> getAllStudents();
 
     EtudiantEntity getStudentById(int id);
+
+    void removeStudent(int id);
 }
