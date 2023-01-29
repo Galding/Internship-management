@@ -54,10 +54,25 @@ public class CompanyService implements ICompanyService {
         final Transaction tx = session.beginTransaction();
         session.merge(entrepriseEntity);
         tx.commit();
+        session.close();
+    }
+
+    @Override
+    public void addCompany(final EntrepriseEntity entrepriseEntity) {
+        final Session session = sessionFactory.openSession();
+        final Transaction tx = session.beginTransaction();
+        session.save(entrepriseEntity);
+        tx.commit();
+        session.close();
     }
 
     @Override
     public EntrepriseEntity getCompanyFromStudentId(final int studentId) {
         return companyRepository.findCompanyFromStudentId(studentId);
+    }
+
+    @Override
+    public int getLastAvailableId() {
+        return companyRepository.findLastAvailableId();
     }
 }

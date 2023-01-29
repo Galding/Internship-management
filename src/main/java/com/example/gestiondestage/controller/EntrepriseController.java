@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Stream;
 
 import static java.lang.Integer.parseInt;
 import static java.util.Arrays.stream;
@@ -68,6 +69,19 @@ public class EntrepriseController {
         return "entreprise";
     }
 
+    @RequestMapping(value = "/ajoutEntreprise")
+    public String ajoutEntreprise(final Model model) {
+        model.addAttribute("specialitesList", specialityService.getAllSpeciality());
+        model.addAttribute("modification", false);
+        return "modifierEntreprise";
+    }
+
+    @RequestMapping(value = "/postAjouter", method = POST)
+    public String postAjouter(final HttpServletRequest request) {
+        companyService.addCompany(parseParam(request));
+        return "entreprise";
+    }
+
     private EntrepriseEntity parseParam(final HttpServletRequest request) {
         final Map<String, String[]> params = request.getParameterMap();
         final Set<SpecialiteEntity> selectedSpec = new HashSet<>();
@@ -77,7 +91,8 @@ public class EntrepriseController {
                 selectedSpec.add(spec);
             }
         });
-        return new EntrepriseEntity(parseInt(getParam(params, "id")), getParam(params, "raison_sociale"), getParam(params, "nom_contact"), getParam(params, "nom_resp"), getParam(params, "rue"),
+        final int id = Stream.of(getParam(params, "id")).filter(str -> !str.equals("")).map(Integer::parseInt).findFirst().orElse(companyService.getLastAvailableId());
+        return new EntrepriseEntity(id, getParam(params, "raison_sociale"), getParam(params, "nom_contact"), getParam(params, "nom_resp"), getParam(params, "rue"),
                 parseInt(getParam(params, "cp")), getParam(params, "ville"), getParam(params, "tel"), getParam(params, "fax"), getParam(params, "email"), getParam(params, "observation"),
                 getParam(params, "site"), getParam(params, "niveau"), (byte) 1, selectedSpec);
     }

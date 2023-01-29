@@ -2,6 +2,7 @@ package com.example.gestiondestage.entities;
 
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -9,6 +10,7 @@ import java.util.Set;
 
 @Entity
 @AllArgsConstructor
+@Builder
 @Table(name = "entreprise", schema = "bdd_geststages")
 public class EntrepriseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,7 +56,7 @@ public class EntrepriseEntity {
     @Basic
     @Column(name = "en_activite")
     private byte enActivite;
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY) //cascade = {CascadeType.ALL}
     @JoinTable(
             name = "spec_entreprise",
             schema = "bdd_geststages",

@@ -6,40 +6,41 @@
     <meta charset="UTF-8">
     <title>Entreprise</title>
     <th:block th:id="script">
-        <script type="text/javascript" rel="script" charset="utf8" th:src="@{/javascript/datatable_entreprise.js}"></script>
+        <script type="text/javascript" rel="script" charset="utf8"
+                th:src="@{/javascript/datatable_entreprise.js}"></script>
     </th:block>
 </head>
 <body>
-    <div id="entreprise-main-content">
-        <div class="large_bouton_operation">
-            <a class="icon_rechercher">Rechercher une entreprise</a>
-            <a class="icon_ajouter">Ajouter une entreprise</a>
-        </div>
-        <hr>
-        <form action="/entreprise" method="post" class="list">
-            <fieldset>
-                <table id="companies_table">
-                    <thead>
-                        <tr>
-                            <th>Operation</th>
-                            <th>Entreprise</th>
-                            <th>Contact</th>
-                            <th>Responsable</th>
-                            <th>Adresse</th>
-                            <th>Téléphone</th>
-                            <th>Fax</th>
-                            <th>Email</th>
-                            <th>Observation</th>
-                            <th>Site</th>
-                            <th>Niveau</th>
-                            <th>Spécialité</th>
-                            <th>En activité</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </fieldset>
-        </form>
+<div id="entreprise-main-content">
+    <div class="large_bouton_operation">
+        <a class="icon_rechercher">Rechercher une entreprise</a>
+        <a class="icon_ajouter" href="/entreprise/ajoutEntreprise">Ajouter une entreprise</a>
     </div>
+    <hr>
+    <form action="/entreprise" method="post" class="list">
+        <fieldset>
+            <table id="companies_table">
+                <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Entreprise</th>
+                    <th>Contact</th>
+                    <th>Responsable</th>
+                    <th>Adresse</th>
+                    <th>Téléphone</th>
+                    <th>Fax</th>
+                    <th>Email</th>
+                    <th>Observation</th>
+                    <th>Site</th>
+                    <th>Niveau</th>
+                    <th>Spécialité</th>
+                    <th>En activité</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </fieldset>
+    </form>
+</div>
 </body>
 </html>

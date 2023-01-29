@@ -15,5 +15,9 @@ public interface ICompanyService {
 
     void updateCompany(EntrepriseEntity entrepriseEntity);
 
+    void addCompany(EntrepriseEntity entrepriseEntity);
+
     EntrepriseEntity getCompanyFromStudentId(int studentId);
+
+    int getLastAvailableId();
 }
