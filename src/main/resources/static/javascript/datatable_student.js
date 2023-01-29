@@ -37,27 +37,27 @@ $(document).ready(function () {
                 searchable: false
             },
             {
-                data: 'students.nomEtudiant',
+                data: 'nomEtudiant',
                 searchable: true,
                 visible: true
             },
             {
-                data: 'students.prenomEtudiant',
+                data: 'prenomEtudiant',
                 searchable: true,
                 visible: false
             },
             {
-                data: 'students.anneeObtention',
+                data: 'anneeObtention',
                 searchable: true,
                 visible: false
             },
             {
-                data: 'students.numClasse',
+                data: 'numClasse',
                 searchable: true,
                 visible: false
             },
             {
-                data: 'students.enActivite',
+                data: 'enActivite',
                 searchable: true,
                 visible: false
             },
