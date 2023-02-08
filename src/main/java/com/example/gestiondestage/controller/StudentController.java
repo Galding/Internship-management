@@ -93,8 +93,8 @@ public class StudentController {
                 getParamFromParameterMap(params, "login"), getParamFromParameterMap(params, "mdp"), numClasse, (byte) 1, null);
     }
 
+    //TODO : Ajouter les profs et les entreprises
     @RequestMapping(value = "/data", method = GET)
-
     public ResponseEntity<HashMap<String, Iterable<EtudiantEntity>>> dataList() {
         /*final Map<String, List<?>> data = new HashMap<>();
         data.put("students", studentService.getAllStudents());

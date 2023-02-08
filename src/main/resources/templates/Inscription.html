@@ -7,38 +7,52 @@
     <title>Inscription</title>
 </head>
 <body>
-  <div id="entreprise-main-content">
+<div id="entreprise-main-content">
     <form action="/inscription" method="POST" class="list">
         <fieldset name="contact">
             <table>
-                <tr><th colspan="2">Contact</th></tr>
+                <tr>
+                    <th colspan="2">Contact</th>
+                </tr>
                 <tr>
                     <td>
-                        <label for="entreprises">Entreprise<div class="important">*</div> :</label>
+                        <label for="entreprises">Entreprise
+                            <div class="important">*</div>
+                            :</label>
                     </td>
                     <td>
                         <select id="entreprises" required>
-                            <option th:each="entrepriseList : ${entrepriseList}" th:value="${entrepriseList}" th:text="${entrepriseList}"></option>
+                            <th:block th:if="${companyName != null}">
+                                <option th:text="${companyName}" th:value="${companyName}" selected></option>
+                            </th:block>
+                            <option th:each="entrepriseList : ${entrepriseList}" th:value="${entrepriseList}"
+                                    th:text="${entrepriseList}"></option>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="etudiants">Etudiant<div class="important">*</div> :</label>
+                        <label for="etudiants">Etudiant
+                            <div class="important">*</div>
+                            :</label>
                     </td>
                     <td>
                         <select id="etudiants" required>
-                            <option th:each="etudiantList : ${etudiantList}" th:value="${etudiantList}" th:text="${etudiantList}"></option>
+                            <option th:each="etudiantList : ${etudiantList}" th:value="${etudiantList}"
+                                    th:text="${etudiantList}"></option>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="professeurs">Professeur<div class="important">*</div> :</label>
+                        <label for="professeurs">Professeur
+                            <div class="important">*</div>
+                            :</label>
                     </td>
                     <td>
                         <select id="professeurs" required>
-                            <option th:each="professeursList : ${professeursList}" th:value="${professeursList}" th:text="${professeursList}"></option>
+                            <option th:each="professeursList : ${professeursList}" th:value="${professeursList}"
+                                    th:text="${professeursList}"></option>
                         </select>
                     </td>
                 </tr>
@@ -46,10 +60,14 @@
         </fieldset>
         <fieldset name="description">
             <table>
-                <tr><th colspan="2">Description du stage</th></tr>
+                <tr>
+                    <th colspan="2">Description du stage</th>
+                </tr>
                 <tr>
                     <td>
-                        <label for="date_debut">Date de début du stage<div class="important">*</div> :</label>
+                        <label for="date_debut">Date de début du stage
+                            <div class="important">*</div>
+                            :</label>
                     </td>
                     <td>
                         <input type="date" id="date_debut" placeholder="jj/mm/aaaa" required>
@@ -57,7 +75,9 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="date_fin">Date de fin du stage<div class="important">*</div> :</label>
+                        <label for="date_fin">Date de fin du stage
+                            <div class="important">*</div>
+                            :</label>
                     </td>
                     <td>
                         <input type="date" id="date_fin" placeholder="jj/mm/aaaa" required>
@@ -65,7 +85,9 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="type_stage">Type de stage<div class="important">*</div> :</label>
+                        <label for="type_stage">Type de stage
+                            <div class="important">*</div>
+                            :</label>
                     </td>
                     <td>
                         <select id="type_stage" required>
@@ -93,9 +115,12 @@
                 </tr>
             </table>
         </fieldset>
-        <div class="aide">Les champs comportant le symbole <div class="important">*</div> sont obligatoire</div>
+        <div class="aide">Les champs comportant le symbole
+            <div class="important">*</div>
+            sont obligatoire
+        </div>
         <input type="submit" value="Inscrire">
     </form>
-  </div>
+</div>
 </body>
 </html>

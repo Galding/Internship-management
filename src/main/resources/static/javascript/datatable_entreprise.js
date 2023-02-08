@@ -1,4 +1,4 @@
-$(document).ready( function () {
+$(document).ready(function () {
     $('#companies_table').DataTable({
         language: {
             "url": "https://cdn.datatables.net/plug-ins/1.13.1/i18n/fr-FR.json",
@@ -14,18 +14,18 @@ $(document).ready( function () {
         order: [1, 'asc'],
         columns: [
             {
-              data: null,
-              render: function (data, type, row) {
-               return `<div class="bouton_operation">
+                data: null,
+                render: function (data, type, row) {
+                    return `<div class="bouton_operation">
                             <a class="icon_voir" href="/entreprise/voirEntreprise?id=${row.numEntreprise}"></a>&nbsp;
-                            <a class="icon_inscrire" href="#"></a>&nbsp;
+                            <a class="icon_inscrire" href="/inscription?companyName=${row.raisonSociale}"></a>&nbsp;
                             <a class="icon_modifier" href="/entreprise/modifierEntreprise?id=${row.numEntreprise}"></a>&nbsp;
                             <a class="icon_supprimer" href="/entreprise/supprimerEntreprise?id=${row.numEntreprise}"></a>&nbsp;
                        </div>`
-              },
-              visible: true,
-              orderable: false,
-              searchable: false
+                },
+                visible: true,
+                orderable: false,
+                searchable: false
             },
             {
                 data: 'raisonSociale',
@@ -41,8 +41,8 @@ $(document).ready( function () {
             },
             {
                 data: null,
-                render: function (data, type, row){
-                    if(type === 'display'){
+                render: function (data, type, row) {
+                    if (type === 'display') {
                         return `${row.rueEntreprise}<br/>${row.cpEntreprise} ${row.villeEntreprise}`
                     }
                     return row.cpEntreprise
@@ -51,15 +51,15 @@ $(document).ready( function () {
             },
             {
                 data: 'telEntreprise',
-                render: function (data, type, row){
-                  return row.telEntreprise.replace(/ /g, "&nbsp")
+                render: function (data, type, row) {
+                    return row.telEntreprise.replace(/ /g, "&nbsp")
                 },
                 orderable: false,
                 visible: false
             },
             {
                 data: 'faxEntreprise',
-                render: function (data, type, row){
+                render: function (data, type, row) {
                     return row.faxEntreprise.replace(/ /g, "&nbsp")
                 },
                 orderable: false,
