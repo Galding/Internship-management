@@ -1,6 +1,7 @@
 package com.example.gestiondestage.services;
 
 import com.example.gestiondestage.entities.EtudiantEntity;
+import com.example.gestiondestage.entities.StageStudent;
 import com.example.gestiondestage.repository.StudentRepository;
 import javax.persistence.EntityManagerFactory;
 import org.hibernate.Session;
@@ -64,5 +65,10 @@ public class StudentService implements IStudentService {
         session.save(student);
         tx.commit();
         session.close();
+    }
+
+    @Override
+    public List<StageStudent> getAllStageStudents() {
+        return studentRepository.findAllStageStudents();
     }
 }

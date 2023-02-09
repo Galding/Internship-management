@@ -1,6 +1,7 @@
 package com.example.gestiondestage.services;
 
 import com.example.gestiondestage.entities.EtudiantEntity;
+import com.example.gestiondestage.entities.StageStudent;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface IStudentService {
     void updateStudent(EtudiantEntity student);
 
     void addStudent(EtudiantEntity student);
+
+    List<StageStudent> getAllStageStudents();
 }

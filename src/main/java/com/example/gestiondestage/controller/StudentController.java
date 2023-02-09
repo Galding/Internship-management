@@ -1,6 +1,7 @@
 package com.example.gestiondestage.controller;
 
 import com.example.gestiondestage.entities.EtudiantEntity;
+import com.example.gestiondestage.entities.StageStudent;
 import com.example.gestiondestage.services.*;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,16 +93,11 @@ public class StudentController {
         return new EtudiantEntity(id, getParamFromParameterMap(params, "nom_etudiant"), getParamFromParameterMap(params, "prenom_etudiant"), anneeObtention,
                 getParamFromParameterMap(params, "login"), getParamFromParameterMap(params, "mdp"), numClasse, (byte) 1, null);
     }
-
-    //TODO : Ajouter les profs et les entreprises
+    
     @RequestMapping(value = "/data", method = GET)
-    public ResponseEntity<HashMap<String, Iterable<EtudiantEntity>>> dataList() {
-        /*final Map<String, List<?>> data = new HashMap<>();
-        data.put("students", studentService.getAllStudents());
-        data.put("companies", companyService.getAllCompanies());
-        data.put("teachers", professorService.getAllProfessors());*/
+    public ResponseEntity<HashMap<String, Iterable<StageStudent>>> dataList() {
         return ResponseEntity.ok().body(new HashMap<>() {{
-            put("data", studentService.getAllStudents());
+            put("data", studentService.getAllStageStudents());
         }});
     }
 

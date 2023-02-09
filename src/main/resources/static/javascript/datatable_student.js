@@ -37,36 +37,36 @@ $(document).ready(function () {
                 searchable: false
             },
             {
-                data: 'nomEtudiant',
+                data: 'student.nomEtudiant',
                 searchable: true,
                 visible: true
             },
             {
-                data: 'prenomEtudiant',
+                data: 'student.prenomEtudiant',
                 searchable: true,
                 visible: false
             },
             {
-                data: 'anneeObtention',
+                data: 'student.anneeObtention',
                 searchable: true,
                 visible: false
             },
             {
-                data: 'numClasse',
+                data: 'student.numClasse',
                 searchable: true,
                 visible: false
             },
             {
-                data: 'enActivite',
+                data: 'student.enActivite',
                 searchable: true,
                 visible: false
             },
             {
-                data: null, //Entreprise
+                data: 'companyName', //Entreprise
                 visible: true
             },
             {
-                data: null, //profs
+                data: 'professorName', //profs
                 visible: true
             }
         ]
