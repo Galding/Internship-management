@@ -4,6 +4,7 @@ import com.example.gestiondestage.entities.EtudiantEntity;
 import com.example.gestiondestage.entities.StageStudent;
 import com.example.gestiondestage.services.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -40,7 +41,10 @@ public class StudentController {
     IClasseService classeService;
 
     @RequestMapping("/studentList")
-    public String studentList() {
+    public String studentList(final HttpServletRequest request, final Model model) {
+        final HttpSession session = request.getSession();
+        if (session.getAttribute("login") == null) return "redirect:/index";
+        model.addAttribute("role", session.getAttribute("role"));
         return "etudiant";
     }
 
@@ -93,9 +97,12 @@ public class StudentController {
         return new EtudiantEntity(id, getParamFromParameterMap(params, "nom_etudiant"), getParamFromParameterMap(params, "prenom_etudiant"), anneeObtention,
                 getParamFromParameterMap(params, "login"), getParamFromParameterMap(params, "mdp"), numClasse, (byte) 1, null);
     }
-    
+
     @RequestMapping(value = "/data", method = GET)
-    public ResponseEntity<HashMap<String, Iterable<StageStudent>>> dataList() {
+    public ResponseEntity<HashMap<String, Iterable<StageStudent>>> dataList(final HttpServletRequest request) {
+        //public ResponseEntity<Iterable<?>[]> dataList(final HttpServletRequest request) {
+        //final Iterable<?>[] res = {studentService.getAllStageStudents(), List.of(request.getSession().getAttribute("role"))};
+        //return ResponseEntity.ok().body(res);
         return ResponseEntity.ok().body(new HashMap<>() {{
             put("data", studentService.getAllStageStudents());
         }});

@@ -35,4 +35,7 @@ public interface StudentRepository extends JpaRepository<EtudiantEntity, Integer
             "LEFT JOIN EntrepriseEntity en ON s.numEntreprise=en.numEntreprise")
     List<StageStudent> findAllStageStudents();
 
+    @Query(value = "SELECT if( count(*)>0, 'true', 'false' ) FROM etudiant e WHERE e.login = :login AND e.mdp = :mdp", nativeQuery = true)
+    boolean login(String login, String mdp);
+
 }

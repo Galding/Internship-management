@@ -71,4 +71,9 @@ public class StudentService implements IStudentService {
     public List<StageStudent> getAllStageStudents() {
         return studentRepository.findAllStageStudents();
     }
+
+    @Override
+    public boolean login(final String login, final String mdp) {
+        return studentRepository.login(login, mdp);
+    }
 }

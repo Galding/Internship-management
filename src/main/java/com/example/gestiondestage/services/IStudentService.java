@@ -21,4 +21,6 @@ public interface IStudentService {
     void addStudent(EtudiantEntity student);
 
     List<StageStudent> getAllStageStudents();
+
+    boolean login(String login, String mdp);
 }

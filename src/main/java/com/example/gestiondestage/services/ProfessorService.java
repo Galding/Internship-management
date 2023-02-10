@@ -12,6 +12,7 @@ public class ProfessorService implements IProfessorService {
     @Autowired
     ProfessorRepository professorRepository;
 
+
     @Override
     public List<String> getProfessorsNames() {
         return professorRepository.findAllProfessorsNames();
@@ -20,5 +21,10 @@ public class ProfessorService implements IProfessorService {
     @Override
     public List<ProfesseurEntity> getAllProfessors() {
         return professorRepository.findAll();
+    }
+
+    @Override
+    public boolean login(final String login, final String mdp) {
+        return professorRepository.login(login, mdp);
     }
 }

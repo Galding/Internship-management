@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    function isTeacher() {
+        return document.getElementById("role").value === "teacher"
+    }
+
     $('#companies_table').DataTable({
         language: {
             "url": "https://cdn.datatables.net/plug-ins/1.13.1/i18n/fr-FR.json",
@@ -16,12 +20,15 @@ $(document).ready(function () {
             {
                 data: null,
                 render: function (data, type, row) {
+                    let toAdd = isTeacher() ?
+                        `<a class="icon_modifier" href="/entreprise/modifierEntreprise?id=${row.numEntreprise}"></a>&nbsp;
+                            <a class="icon_supprimer" href="/entreprise/supprimerEntreprise?id=${row.numEntreprise}"></a>&nbsp;` :
+                        ``
                     return `<div class="bouton_operation">
                             <a class="icon_voir" href="/entreprise/voirEntreprise?id=${row.numEntreprise}"></a>&nbsp;
-                            <a class="icon_inscrire" href="/inscription?companyName=${row.raisonSociale}"></a>&nbsp;
-                            <a class="icon_modifier" href="/entreprise/modifierEntreprise?id=${row.numEntreprise}"></a>&nbsp;
-                            <a class="icon_supprimer" href="/entreprise/supprimerEntreprise?id=${row.numEntreprise}"></a>&nbsp;
-                       </div>`
+                            <a class="icon_inscrire" href="/inscription?companyName=${row.raisonSociale}"></a>&nbsp;`
+                        + toAdd +
+                        `</div>`
                 },
                 visible: true,
                 orderable: false,

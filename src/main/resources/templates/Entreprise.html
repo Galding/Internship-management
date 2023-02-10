@@ -12,11 +12,13 @@
 </head>
 <body>
 <div id="entreprise-main-content">
-    <div class="large_bouton_operation">
-        <a class="icon_rechercher">Rechercher une entreprise</a>
-        <a class="icon_ajouter" href="/entreprise/ajoutEntreprise">Ajouter une entreprise</a>
-    </div>
+    <th:block th:if="${currentUserRole != null and currentUserRole == 'teacher'}">
+        <div class="large_bouton_operation">
+            <a class="icon_ajouter" href="/entreprise/ajoutEntreprise">Ajouter une entreprise</a>
+        </div>
+    </th:block>
     <hr>
+    <input type="hidden" id="role" th:value="${currentUserRole}">
     <form action="/entreprise" method="post" class="list">
         <fieldset>
             <table id="companies_table">

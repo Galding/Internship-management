@@ -9,4 +9,6 @@ public interface IProfessorService {
 
     List<ProfesseurEntity> getAllProfessors();
 
+    boolean login(String login, String mdp);
+
 }

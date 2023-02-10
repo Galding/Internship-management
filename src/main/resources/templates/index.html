@@ -2,16 +2,40 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       th:replace="~{layouts/main-layout :: main-fragment( ~{::title}, ~{::script}, ~{:: #page-header}, ~{:: #entreprise-main-content})}">
-<head >
+<head>
     <meta charset="UTF-8">
     <title>Accueil</title>~
 </head>
 <body>
-    <div id="entreprise-main-content">
-        <article>
-            <h1>Bienvenue</h1>
-            <p>Vous êtes actuellement sur la page d'acceuil</p>
-        </article>
-    </div>
+<div id="entreprise-main-content">
+    <article>
+        <h1>Bienvenue</h1>
+        <p>Vous êtes actuellement sur la page d'acceuil</p>
+    </article>
+    <th:block th:if="${success == 1}">
+        <p th:text="'Bienvenue : ' + ${currentLogin}"></p>
+    </th:block>
+    <article class="list" th:if="${success == null or success != 1}">
+        <p>Vous n'êtes actuellement pas connecté, veuillez vous identifiez</p>
+        <form method="post" action="/login">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <fieldset>
+                <label for="login">Login : </label>
+                <input type="text" id="login" name="login" required>
+                <label for="password">Mot de passe : </label>
+                <input type="password" id="password" name="password" required>
+                <p>Vous êtes ?</p>
+                <label for="student">Étudiant</label>
+                <input type="radio" id="student" name="type" value="student" required>
+                <label for="teacher">Professeur</label>
+                <input type="radio" id="teacher" name="type" value="teacher">
+            </fieldset>
+            <input type="submit" value="Connexion">
+        </form>
+        <th:block th:if="${success == 0}">
+            <span class="important">Mot de passe ou Login incorrect</span>
+        </th:block>
+    </article>
+</div>
 </body>
 </html>

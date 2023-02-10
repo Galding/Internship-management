@@ -17,4 +17,7 @@ public interface ProfessorRepository extends JpaRepository<ProfesseurEntity, Int
 
     @Query("SELECT e FROM ProfesseurEntity e")
     List<ProfesseurEntity> findAll();
+
+    @Query(value = "SELECT if( e.num_prof is not null, 'true', 'false' ) FROM professeur as e WHERE e.login = :login AND e.mdp = :mdp", nativeQuery = true)
+    boolean login(String login, String mdp);
 }

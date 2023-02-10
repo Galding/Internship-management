@@ -6,6 +6,7 @@ import com.example.gestiondestage.services.ICompanyService;
 import com.example.gestiondestage.services.IInternshipService;
 import com.example.gestiondestage.services.ISpecialityService;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -38,7 +39,12 @@ public class EntrepriseController {
     private ISpecialityService specialityService;
 
     @RequestMapping(value = "/listEntreprise", method = {POST, GET})
-    public String listEntreprise(final Model model) {
+    public String listEntreprise(final Model model, final HttpServletRequest request) {
+        final HttpSession session = request.getSession();
+        if (session.getAttribute("login") == null) {
+            return "redirect:/index";
+        }
+        model.addAttribute("currentUserRole", session.getAttribute("role"));
         return "entreprise";
     }
 
