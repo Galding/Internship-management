@@ -22,7 +22,7 @@ $(document).ready(function () {
                 render: function (data, type, row) {
                     console.log(data)
                     return `<div class="bouton_operation">
-                        <a href="/student/voirEtudiant?id=${row.numEtudiant}" class="icon_voir"></a>
+                        <a href="/student/voirEtudiant?id=${row.student.numEtudiant}" class="icon_voir"></a>
                     </div>`
                 },
                 visible: true,
@@ -33,8 +33,8 @@ $(document).ready(function () {
                 data: null,
                 render: function (data, type, row) {
                     return `<div class="bouton_operation">
-                        <a href="/student/modifierEtudiant?id=${row.numEtudiant}" class="icon_modifier"></a>
-                        <a href="/student/supprimerEtudiant?id=${row.numEtudiant}" class="icon_supprimer"></a>
+                        <a href="/student/modifierEtudiant?id=${row.student.numEtudiant}" class="icon_modifier"></a>
+                        <a href="/student/supprimerEtudiant?id=${row.student.numEtudiant}" class="icon_supprimer"></a>
                     </div>`
                 },
                 visible: isTeacher(),
