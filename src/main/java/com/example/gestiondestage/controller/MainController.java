@@ -71,4 +71,9 @@ public class MainController {
         model.addAttribute("professeursList", professorService.getProfessorsNames());
         return "inscription";
     }
+
+    @RequestMapping("/aide")
+    public String aide() {
+        return "aide";
+    }
 }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/main-layout :: main-fragment( ~{::title}, ~{::script},  ~{:: #page-header},~{:: #entreprise-main-content})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Page d'aide</title>
+</head>
+<body>
+<header id="page-header">
+    <h1>Aide</h1>
+    <h2>Bienvenue sur la FAQ</h2>
+    <hr>
+</header>
+<div id="entreprise-main-content" class="left">
+    <h3>Entreprise</h3>
+    <p>Comment rechercher une entreprise ?</p>
+    <article>
+        <p>Si vous voulez rechercher une entreprise, vous devez aller sur la page " Entreprise ", pour cliquer sur
+            le bouton " Rechercher une entreprise ". Il vous est alors fourni trois critères. Utilisez-les afin de
+            pouvoir trouver les entreprises qui correspondent à vos choix</p>
+    </article>
+    <p>Comment ajouter une entreprise ?</p>
+    <article>
+        <p>Pour ajouter une entreprise, rendez-vous sur la page " Entreprise ", où vous devez cliquer sur le
+            bouton " Ajouter une entreprise ". Vous devrez ensuite ajouter les informations concernant
+            l’entreprise. Toutes les informations ne sont pas obligatoires, mais il est conseillé d’en fournir un
+            maximum pour renseigner les futurs stagiaires sur les entreprises référencées.</p>
+    </article>
+    <p>Comment afficher ou enlever une information concernant l'entreprise ?</p>
+    <article>
+        <p>
+            En allant sur la page " Entreprise ", vous pouvez voir les entreprises déjà référencées. Vous pouvez
+            alors remarquer que certaines informations concernant l'entreprise sont absentes. Vous pouvez
+            cependant les afficher grâce à la liste déroulante : choisissez l'information que vous voulez afficher
+            puis cliquez sur le bouton " Ajouter ". Si vous désirez enlever une information, il vous suffit de cliquer
+            sur le moins situé à l'entête de la colonne représentant l'information concerné
+        </p>
+    </article>
+    <p>N'y a-t-il pas une autre solution pour voir ces informations ?</p>
+    <article>
+        <p>
+            Bien sûr, vous pouvez cliquer sur l’icône
+            <img src="../icons/voir.png" class="fake_bouton" alt="voir"/>
+            pour voir toutes les informations
+            concernant
+            l'entreprise que vous avez sélectionné
+        </p>
+    </article>
+    <p>Comment puis-je supprimer une entreprise ?</p>
+    <article>
+        <p>
+            Rien de plus simple, il vous suffit de cliquer sur l'icône
+            <img src="../icons/supprimer.png" class="fake_bouton" alt="supprimer"/>
+            qui se situe sur la deuxième colonne "Opération ".
+        </p>
+        <p class="important">Faites bien attention de ne pas vous tromper de ligne !</p>
+    </article>
+    <p>Et si je veux modifier une fausse information ?</p>
+    <article>
+        <p>
+            Cliquez sur l’icône
+            <img src="../icons/modifier.png" class="fake_bouton" alt="modifier"/>, puis changer le(s) information(s) que
+            vous voulez.
+            Vous pourrez par la même occasion renseigner une information manquante si vous en avez la possibilité.
+        </p>
+    </article>
+    <h3>Gestion des Étudiants (Stagiaire)</h3>
+    <p>Comment rechercher un stagiaire ?</p>
+    <article>
+        <p>Tout d'abord, dirigez-vous sur la page " Stagiaire ". Cliquez ensuite sur le bouton " Rechercher un stagiaire
+            existant ".
+            Vous aurez alors quatre listes déroulantes. Vous pourrez ainsi choisir, pour chaque champ, l'information
+            voulue.</p>
+    </article>
+    <p>Comment inscrire un étudiant à un stage ?</p>
+    <article>
+        <p>
+            Pour cela, vous devez vous rendre sur la page " Inscription ". Ensuite, vous devrez remplir un
+            formulaire contenant diverses informations concernant le stage de l’étudiant, comme
+            l’entreprise ou encore le professeur qui s’occupera du stage de
+            l’étudiant. Vous pouvez aussi le faire
+            à partir de la page " Entreprise " : cliquez sur la poignée de main située sur la première colonne "
+            Opération ", et le formulaire d'inscription s'affichera avec le nom de l'entreprise pré-rentré.
+        </p>
+    </article>
+    <p>Comment peut-on voir les informations des stagiaires ?</p>
+    <article>
+        <p>
+            Sur la liste qui s'affiche sur la page " Stagiaire ", ou en cliquant sur l’icône
+            <img src="../icons/voir.png" class="fake_bouton" alt="voir"/>.
+        </p>
+    </article>
+    <p>Comment peut-on supprimer un stagiaire ?</p>
+    <article>
+        <p>
+            Comme pour une entreprise : cliquez sur l'icône
+            <img src="../icons/supprimer.png" class="fake_bouton" alt="delete"/>
+            présente sur la page
+            "Stagiaire ".
+        </p>
+    </article>
+    <p>Et pour modifier le contenu d'un champ, pareil que pour les entreprises ?</p>
+    <article><p>Tout juste !</p></article>
+</div>
+</body>
+</html>
