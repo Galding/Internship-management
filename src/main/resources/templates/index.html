@@ -15,7 +15,7 @@
     <th:block th:if="${success == 1}">
         <p th:text="'Bienvenue : ' + ${currentLogin}"></p>
     </th:block>
-    <article class="list" th:if="${success == null or success != 1}">
+    <article class="list" th:if="${success == null or success != 1 or currentLogin == null}">
         <p>Vous n'êtes actuellement pas connecté, veuillez vous identifiez</p>
         <form method="post" action="/login">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

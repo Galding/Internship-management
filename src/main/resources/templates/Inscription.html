@@ -22,11 +22,9 @@
                     </td>
                     <td>
                         <select id="entreprises" required>
-                            <th:block th:if="${companyName != null}">
-                                <option th:text="${companyName}" th:value="${companyName}" selected></option>
-                            </th:block>
                             <option th:each="entrepriseList : ${entrepriseList}" th:value="${entrepriseList}"
-                                    th:text="${entrepriseList}"></option>
+                                    th:text="${entrepriseList}"
+                                    th:selected="${entrepriseList} == ${companyName}"></option>
                         </select>
                     </td>
                 </tr>
