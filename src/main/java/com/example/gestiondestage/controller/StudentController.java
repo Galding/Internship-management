@@ -59,7 +59,7 @@ public class StudentController {
     @RequestMapping(value = "/supprimerEtudiant")
     public String supprimerEtudiant(final Model model, @RequestParam final int id) {
         studentService.removeStudent(id);
-        return "etudiant";
+        return "redirect:/student/studentList";
     }
 
     @RequestMapping(value = "/modifierEtudiant")
@@ -73,7 +73,7 @@ public class StudentController {
     @RequestMapping(value = "/postModification", method = POST)
     public String postModifier(final HttpServletRequest request) {
         studentService.updateStudent(parseParam(request));
-        return "etudiant";
+        return "redirect:/student/studentList";
     }
 
     @RequestMapping(value = "/ajouterEtudiant")
@@ -86,7 +86,7 @@ public class StudentController {
     @RequestMapping(value = "/postAjout", method = POST)
     public String postAjouter(final HttpServletRequest request) {
         studentService.addStudent(parseParam(request));
-        return "etudiant";
+        return "redirect:/student/studentList";
     }
 
     private EtudiantEntity parseParam(final HttpServletRequest request) {
