@@ -13,14 +13,25 @@ body
 .nav
 {
     background-color: #222;
-    width: 290px;
+    width: 230px;
     height: 100%;
     display: block;
     color: white;
     border-right: 5px solid #3060FF;
     position: fixed;
     top: 0px;
+    transition-property: left;
+    transition-duration: 0.4s;
+}
+
+.nav:hover {
     left: 0px;
+    transition-property: left;
+    transition-duration: 0.4s;
+}
+
+.nav:not(:hover) {
+    left: -160px;
 }
 
 .nav a
@@ -34,6 +45,7 @@ body
     font-size: 1.3em;
     white-space: nowrap;
     height: 23px;
+    text-align: right;
 }
 
 .nav a.actif 
@@ -51,12 +63,12 @@ body
     background-color: #4060FF;
 }
 
-.nav a::before
+.nav a::after
 {
     background-position: center center;
     background-size: 30px 30px;
     content: " ";
-    margin: -6px 20px -6px 0px;
+    margin: -6px 0px -6px 20px;
     width: 30px;
     height: 30px;
     display: inline-block;
@@ -72,20 +84,21 @@ body
 
 .nav ul {
     list-style: none;
+    padding: 0px;
 }
 
 h1 {font-size: 1.6em;}
 h2 {font-size: 1.2em;}
 
-#onglet_accueil::before {background-image:url(../icons/home.png);}
-#onglet_entreprise::before {background-image:url(../icons/entreprise.png);}
-#onglet_stagiaire::before {background-image:url(../icons/stage.png);}
-#onglet_inscrire::before {background-image:url(../icons/inscrire.png);}
-#onglet_aide::before {background-image:url(../icons/aide.png);}
-#onglet_deconnection::before {background-image:url(../icons/deconnexion.png);}
+#onglet_accueil::after {background-image:url(../icons/home.png);}
+#onglet_entreprise::after {background-image:url(../icons/entreprise.png);}
+#onglet_stagiaire::after {background-image:url(../icons/stage.png);}
+#onglet_inscrire::after {background-image:url(../icons/inscrire.png);}
+#onglet_aide::after {background-image:url(../icons/aide.png);}
+#onglet_deconnection::after {background-image:url(../icons/deconnexion.png);}
 
-#icon_droite::before {background-image:url(../icons/droite.png);}
-#icon_gauche::before {background-image:url(../icons/gauche.png);}
+#icon_droite::after {background-image:url(../icons/droite.png);}
+#icon_gauche::after {background-image:url(../icons/gauche.png);}
 
 #corps
 {
@@ -205,7 +218,7 @@ article h2
 
 .content {
     margin-left: 295px;
-    width: calc(100% - 290px - 5px);
+    width: calc(100% - 230px - 5px);
 }
 
 #entreprise-main-content {
