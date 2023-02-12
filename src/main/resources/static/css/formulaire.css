@@ -1,5 +1,4 @@
-fieldset
-{
+fieldset {
     border: none;
     margin: 0px;
     padding: 0px;
@@ -7,34 +6,29 @@ fieldset
     margin-bottom: 20px;
 }
 
-input, label, select, textarea
-{
+input, label, select, textarea {
     margin-top: 2px;
     margin-bottom: 2px;
     padding: 3px 6px 3px 6px;
 }
 
-input, select, textarea
-{
+input, select, textarea {
     border: 1px solid #888;
     border-radius: 2px;
     min-width: 175px;
-    max-width: 100%;
+    max-width: 97%;
 }
 
-input, select, textarea
-{
+input, select, textarea {
     width: 100%;
 }
 
-input[type=submit], input[type=button]
-{
+input[type=submit], input[type=button] {
     min-width: 0px;
     width: 150px;
 }
 
-textarea
-{
+textarea {
     min-height: 60px;
 }
 

@@ -1,24 +1,20 @@
-.list
-{
+.list {
     width: 100%;
 }
 
-.list table
-{
+.list table {
     width: 100%;
     margin: 0px;
     padding: 0px;
 }
 
-.list  th, td
-{
+.list th, td {
     margin: 0px;
     border-radius: 3px;
-    
+
 }
 
-.list th
-{
+.list th {
     text-decoration: none;
     background-color: #3060FF;
     border: 1px solid #183080;
@@ -29,19 +25,17 @@
     white-space: nowrap;
 }
 
-.list  th span
-{
+.list th span {
     display: inline-block;
     width: -moz-calc(100% - 18px);
     width: -webkit-calc(100% - 18px);
     width: -o-calc(100% - 18px);
     width: calc(100% - 18px);
     text-align: center;
-    
+
 }
 
-.list th a
-{
+.list th a {
     text-align: center;
     text-decoration: none;
     background-color: #2050C0;
@@ -52,22 +46,27 @@
     margin: 4px 4px 4px 4px;
 }
 
-.list  td
-{
+.list td {
     background-color: #DDD;
     border: 1px solid #BBB;
     padding: 5px 5px 5px 5px;
     font-size: 0.85em;
 }
 
-.list td ul
-{
+.list td:first-child {
+    text-align: right;
+}
+
+.list td ul {
     padding: 0px 0px 0px 20px;
     margin: 0px;
 }
 
-.nowrap
-{
+.nowrap {
     white-space: nowrap;
+}
+
+#student_table {
+    margin: 0;
 }
 

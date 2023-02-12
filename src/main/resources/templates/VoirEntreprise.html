@@ -7,50 +7,56 @@
     <title>Entreprise Card</title>
 </head>
 <body>
-<header id="page-header">
+<div class="header" id="page-header">
     <h1 th:text="${entreprise.raisonSociale}"></h1>
     <hr>
-</header>
+</div>
 <h2>Entrée</h2>
-  <div id="entreprise-main-content">
-      <article class="information left">
-          <h2>Information</h2>
-          <div th:text="'Nom de l\'entreprise : ' + ${entreprise.raisonSociale}"></div>
-          <div th:text="'Nom du contact : ' +${entreprise.nomContact}"></div>
-          <div th:text="'Nom du responsable : ' + ${entreprise.nomResp}"></div>
-      </article>
-      <article class="information left">
-          <h2>Conctact</h2>
-          <div th:text="'Rue : ' + ${entreprise.rueEntreprise}"></div>
-          <div th:text="'Code Postal : ' + ${entreprise.cpEntreprise}">Code postal : </div>
-          <div th:text="'Ville : ' + ${entreprise.villeEntreprise}"></div>
-          <div th:text="'Téléphone : ' + ${entreprise.telEntreprise}"></div>
-          <div th:text="'Fax : ' + ${entreprise.faxEntreprise}"></div>
-          <div th:text="'Email  : ' + ${entreprise.email}"></div>
-      </article>
-      <article class="information left">
-          <h2>Divers</h2>
-          <div th:text="'Observation : ' + ${entreprise.observation}"></div>
-          <div th:text="'Url du site : ' + ${entreprise.siteEntreprise}"></div>
-          <div th:text="'Niveau : ' + ${entreprise.niveau}"></div>
-          <div> Specialitées : <div th:each="spec : ${entreprise.specialites}" th:text="${spec.libelle}"></div></div>
-      </article>
-      <hr>
-      <section class="list">
-          <h2>Stage</h2>
-          <table class="table left">
-              <thead>
-                    <tr><th>Operation</th><th>Etudiant</th><th>Projet</th></tr>
-              </thead>
-              <tbody>
-                    <tr th:each="stage : ${stages}">
-                        <td></td>
-                        <td th:text="${student.prenomEtudiant} + ' ' + ${student.nomEtudiant}"></td>
-                        <td th:utext="${stage.descProjet}"></td>
-                    </tr>
-              </tbody>
-          </table>
-      </section>
-  </div>
+<div id="entreprise-main-content">
+    <article class="information left">
+        <h2>Information</h2>
+        <div th:text="'Nom de l\'entreprise : ' + ${entreprise.raisonSociale}"></div>
+        <div th:text="'Nom du contact : ' +${entreprise.nomContact}"></div>
+        <div th:text="'Nom du responsable : ' + ${entreprise.nomResp}"></div>
+    </article>
+    <article class="information left">
+        <h2>Conctact</h2>
+        <div th:text="'Rue : ' + ${entreprise.rueEntreprise}"></div>
+        <div th:text="'Code Postal : ' + ${entreprise.cpEntreprise}">Code postal :</div>
+        <div th:text="'Ville : ' + ${entreprise.villeEntreprise}"></div>
+        <div th:text="'Téléphone : ' + ${entreprise.telEntreprise}"></div>
+        <div th:text="'Fax : ' + ${entreprise.faxEntreprise}"></div>
+        <div th:text="'Email  : ' + ${entreprise.email}"></div>
+    </article>
+    <article class="information left">
+        <h2>Divers</h2>
+        <div th:text="'Observation : ' + ${entreprise.observation}"></div>
+        <div th:text="'Url du site : ' + ${entreprise.siteEntreprise}"></div>
+        <div th:text="'Niveau : ' + ${entreprise.niveau}"></div>
+        <div> Specialitées :
+            <div th:each="spec : ${entreprise.specialites}" th:text="${spec.libelle}"></div>
+        </div>
+    </article>
+    <hr>
+    <section class="list">
+        <h2>Stage</h2>
+        <table class="table left">
+            <thead>
+            <tr>
+                <th>Operation</th>
+                <th>Etudiant</th>
+                <th>Projet</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="stage : ${stages}">
+                <td></td>
+                <td th:text="${student.prenomEtudiant} + ' ' + ${student.nomEtudiant}"></td>
+                <td th:utext="${stage.descProjet}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
 </body>
 </html>
