@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="entreprise-main-content">
-    <form action="/inscription" method="POST" class="list">
+    <form action="/postInscription" method="POST" class="list">
         <fieldset name="contact">
             <table>
                 <tr>
@@ -21,9 +21,10 @@
                             :</label>
                     </td>
                     <td>
-                        <select id="entreprises" required>
-                            <option th:each="entrepriseList : ${entrepriseList}" th:value="${entrepriseList}"
-                                    th:text="${entrepriseList}"
+                        <select id="entreprises" name="entreprises" required>
+                            <option th:each="entrepriseList : ${entrepriseList}"
+                                    th:value="${entrepriseList.numEntreprise}"
+                                    th:text="${entrepriseList.raisonSociale}"
                                     th:selected="${entrepriseList} == ${companyName}"></option>
                         </select>
                     </td>
@@ -35,9 +36,9 @@
                             :</label>
                     </td>
                     <td>
-                        <select id="etudiants" required>
-                            <option th:each="etudiantList : ${etudiantList}" th:value="${etudiantList}"
-                                    th:text="${etudiantList}"></option>
+                        <select id="etudiants" name="etudiants" required>
+                            <option th:each="etudiantList : ${etudiantList}" th:value="${etudiantList.numEtudiant}"
+                                    th:text="${etudiantList.nomEtudiant}"></option>
                         </select>
                     </td>
                 </tr>
@@ -48,9 +49,9 @@
                             :</label>
                     </td>
                     <td>
-                        <select id="professeurs" required>
-                            <option th:each="professeursList : ${professeursList}" th:value="${professeursList}"
-                                    th:text="${professeursList}"></option>
+                        <select id="professeurs" name="professeurs" required>
+                            <option th:each="professeursList : ${professeursList}" th:value="${professeursList.numProf}"
+                                    th:text="${professeursList.nomProf}"></option>
                         </select>
                     </td>
                 </tr>
@@ -68,7 +69,7 @@
                             :</label>
                     </td>
                     <td>
-                        <input type="date" id="date_debut" placeholder="jj/mm/aaaa" required>
+                        <input type="date" id="date_debut" name="date_debut" placeholder="jj/mm/aaaa" required>
                     </td>
                 </tr>
                 <tr>
@@ -78,7 +79,7 @@
                             :</label>
                     </td>
                     <td>
-                        <input type="date" id="date_fin" placeholder="jj/mm/aaaa" required>
+                        <input type="date" id="date_fin" name="date_fin" placeholder="jj/mm/aaaa" required>
                     </td>
                 </tr>
                 <tr>
@@ -88,7 +89,7 @@
                             :</label>
                     </td>
                     <td>
-                        <select id="type_stage" required>
+                        <select id="type_stage" name="type_stage" required>
                             <option>Aucun</option>
                             <option>Stage</option>
                             <option>Alternance</option>
@@ -100,7 +101,7 @@
                         <label for="description_projet">Description du projet :</label>
                     </td>
                     <td>
-                        <textarea id="description_projet"></textarea>
+                        <textarea id="description_projet" name="description_projet"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -108,7 +109,7 @@
                         <label for="observations">Obervations :</label>
                     </td>
                     <td>
-                        <textarea id="observations"></textarea>
+                        <textarea id="observations" name="observations"></textarea>
                     </td>
                 </tr>
             </table>

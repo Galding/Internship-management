@@ -1,7 +1,7 @@
 package com.example.gestiondestage.controller;
 
 import com.example.gestiondestage.entities.EtudiantEntity;
-import com.example.gestiondestage.entities.StageStudent;
+import com.example.gestiondestage.entities.StudentWithTeacherAndCompanyName;
 import com.example.gestiondestage.services.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -99,10 +99,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/data", method = GET)
-    public ResponseEntity<HashMap<String, Iterable<StageStudent>>> dataList(final HttpServletRequest request) {
-        //public ResponseEntity<Iterable<?>[]> dataList(final HttpServletRequest request) {
-        //final Iterable<?>[] res = {studentService.getAllStageStudents(), List.of(request.getSession().getAttribute("role"))};
-        //return ResponseEntity.ok().body(res);
+    public ResponseEntity<HashMap<String, Iterable<StudentWithTeacherAndCompanyName>>> dataList(final HttpServletRequest request) {
         return ResponseEntity.ok().body(new HashMap<>() {{
             put("data", studentService.getAllStageStudents());
         }});

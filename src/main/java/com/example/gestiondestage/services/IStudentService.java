@@ -1,7 +1,7 @@
 package com.example.gestiondestage.services;
 
 import com.example.gestiondestage.entities.EtudiantEntity;
-import com.example.gestiondestage.entities.StageStudent;
+import com.example.gestiondestage.entities.StudentWithTeacherAndCompanyName;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public interface IStudentService {
 
     void addStudent(EtudiantEntity student);
 
-    List<StageStudent> getAllStageStudents();
+    List<StudentWithTeacherAndCompanyName> getAllStageStudents();
 
     boolean login(String login, String mdp);
 }

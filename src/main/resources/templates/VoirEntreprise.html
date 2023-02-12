@@ -51,8 +51,8 @@
             <tbody>
             <tr th:each="stage : ${stages}">
                 <td></td>
-                <td th:text="${student.prenomEtudiant} + ' ' + ${student.nomEtudiant}"></td>
-                <td th:utext="${stage.descProjet}"></td>
+                <td th:text="${stage.etudiantEntity.prenomEtudiant} + ' ' + ${stage.etudiantEntity.nomEtudiant}"></td>
+                <td th:utext="${stage.stageEntity.descProjet}"></td>
             </tr>
             </tbody>
         </table>

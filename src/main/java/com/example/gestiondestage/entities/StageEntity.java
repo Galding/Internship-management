@@ -1,13 +1,14 @@
 package com.example.gestiondestage.entities;
 
 import javax.persistence.*;
+import lombok.AllArgsConstructor;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
-@Table(name = "stage", schema = "bdd_geststages", catalog = "")
+@Table(name = "stage", schema = "bdd_geststages")
+@AllArgsConstructor
 public class StageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -15,10 +16,10 @@ public class StageEntity {
     private int numStage;
     @Basic
     @Column(name = "debut_stage")
-    private Timestamp debutStage;
+    private Date debutStage;
     @Basic
     @Column(name = "fin_stage")
-    private Timestamp finStage;
+    private Date finStage;
     @Basic
     @Column(name = "type_stage")
     private String typeStage;
@@ -40,27 +41,32 @@ public class StageEntity {
 
     @OneToOne(mappedBy = "stageEntity")
     private EtudiantEntity etudiantEntity;
+    
+    public StageEntity() {
+
+    }
+
     public int getNumStage() {
         return numStage;
     }
 
-    public void setNumStage(int numStage) {
+    public void setNumStage(final int numStage) {
         this.numStage = numStage;
     }
 
-    public Timestamp getDebutStage() {
+    public Date getDebutStage() {
         return debutStage;
     }
 
-    public void setDebutStage(Timestamp debutStage) {
+    public void setDebutStage(final Date debutStage) {
         this.debutStage = debutStage;
     }
 
-    public Timestamp getFinStage() {
+    public Date getFinStage() {
         return finStage;
     }
 
-    public void setFinStage(Timestamp finStage) {
+    public void setFinStage(final Date finStage) {
         this.finStage = finStage;
     }
 
@@ -68,7 +74,7 @@ public class StageEntity {
         return typeStage;
     }
 
-    public void setTypeStage(String typeStage) {
+    public void setTypeStage(final String typeStage) {
         this.typeStage = typeStage;
     }
 
@@ -76,7 +82,7 @@ public class StageEntity {
         return descProjet;
     }
 
-    public void setDescProjet(String descProjet) {
+    public void setDescProjet(final String descProjet) {
         this.descProjet = descProjet;
     }
 
@@ -84,7 +90,7 @@ public class StageEntity {
         return observationStage;
     }
 
-    public void setObservationStage(String observationStage) {
+    public void setObservationStage(final String observationStage) {
         this.observationStage = observationStage;
     }
 
@@ -92,7 +98,7 @@ public class StageEntity {
         return numEtudiant;
     }
 
-    public void setNumEtudiant(int numEtudiant) {
+    public void setNumEtudiant(final int numEtudiant) {
         this.numEtudiant = numEtudiant;
     }
 
@@ -100,7 +106,7 @@ public class StageEntity {
         return numProf;
     }
 
-    public void setNumProf(int numProf) {
+    public void setNumProf(final int numProf) {
         this.numProf = numProf;
     }
 
@@ -108,15 +114,15 @@ public class StageEntity {
         return numEntreprise;
     }
 
-    public void setNumEntreprise(int numEntreprise) {
+    public void setNumEntreprise(final int numEntreprise) {
         this.numEntreprise = numEntreprise;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StageEntity that = (StageEntity) o;
+        final StageEntity that = (StageEntity) o;
         return numStage == that.numStage && numEtudiant == that.numEtudiant && numProf == that.numProf && numEntreprise == that.numEntreprise && Objects.equals(debutStage, that.debutStage) && Objects.equals(finStage, that.finStage) && Objects.equals(typeStage, that.typeStage) && Objects.equals(descProjet, that.descProjet) && Objects.equals(observationStage, that.observationStage);
     }
 

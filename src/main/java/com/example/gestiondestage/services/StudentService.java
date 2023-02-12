@@ -1,7 +1,7 @@
 package com.example.gestiondestage.services;
 
 import com.example.gestiondestage.entities.EtudiantEntity;
-import com.example.gestiondestage.entities.StageStudent;
+import com.example.gestiondestage.entities.StudentWithTeacherAndCompanyName;
 import com.example.gestiondestage.repository.StudentRepository;
 import javax.persistence.EntityManagerFactory;
 import org.hibernate.Session;
@@ -68,7 +68,7 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public List<StageStudent> getAllStageStudents() {
+    public List<StudentWithTeacherAndCompanyName> getAllStageStudents() {
         return studentRepository.findAllStageStudents();
     }
 

@@ -1,12 +1,15 @@
 package com.example.gestiondestage.controller;
 
 import com.example.gestiondestage.entities.EntrepriseEntity;
+import com.example.gestiondestage.entities.EtudiantEntity;
 import com.example.gestiondestage.entities.SpecialiteEntity;
+import com.example.gestiondestage.entities.StageEntity;
 import com.example.gestiondestage.services.ICompanyService;
 import com.example.gestiondestage.services.IInternshipService;
 import com.example.gestiondestage.services.ISpecialityService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,10 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Stream;
 
 import static com.example.gestiondestage.Utils.getParamFromParameterMap;
@@ -50,16 +50,16 @@ public class EntrepriseController {
 
     @RequestMapping(value = "/voirEntreprise", method = GET)
     public String voirEntreprise(final Model model, @RequestParam final int id) {
+        final List<LinkedStudentStage> linkedStudentStageList = new ArrayList<>();
         model.addAttribute("entreprise", companyService.getCompanyById(id));
-        model.addAttribute("stages", internshipService.getAllInternshipFromCompanyId(id));
-        model.addAttribute("student", internshipService.getStudentNameForAnInternshipFromCompanyId(id));
+        model.addAttribute("stages", internshipService.getAllLinkedStudentsForAnInternshipFromCompanyId(id));
         return "voirEntreprise";
     }
 
     @RequestMapping(value = "/supprimerEntreprise")
     public String supprimerEntreprise(@RequestParam final int id) {
         companyService.removeCompanyById(id);
-        return "entreprise";
+        return "redirect:/entreprise/listEntreprise";
     }
 
     @RequestMapping(value = "/modifierEntreprise")
@@ -73,7 +73,7 @@ public class EntrepriseController {
     @RequestMapping(value = "/postModification", method = POST)
     public String postModif(final HttpServletRequest request) {
         companyService.updateCompany(parseParam(request));
-        return "entreprise";
+        return "redirect:/entreprise/listEntreprise";
     }
 
     @RequestMapping(value = "/ajoutEntreprise")
@@ -86,7 +86,7 @@ public class EntrepriseController {
     @RequestMapping(value = "/postAjouter", method = POST)
     public String postAjouter(final HttpServletRequest request) {
         companyService.addCompany(parseParam(request));
-        return "entreprise";
+        return "redirect:/entreprise/listEntreprise";
     }
 
     private EntrepriseEntity parseParam(final HttpServletRequest request) {
@@ -110,5 +110,11 @@ public class EntrepriseController {
         return ResponseEntity.ok().body(new HashMap<>() {{
             put("data", companyService.getAllCompanies());
         }});
+    }
+
+    @Builder
+    private static class LinkedStudentStage {
+        private EtudiantEntity etudiantEntity;
+        private StageEntity stage;
     }
 }

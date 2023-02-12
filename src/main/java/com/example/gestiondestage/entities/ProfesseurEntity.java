@@ -31,7 +31,7 @@ public class ProfesseurEntity {
         return numProf;
     }
 
-    public void setNumProf(int numProf) {
+    public void setNumProf(final int numProf) {
         this.numProf = numProf;
     }
 
@@ -39,7 +39,7 @@ public class ProfesseurEntity {
         return nomProf;
     }
 
-    public void setNomProf(String nomProf) {
+    public void setNomProf(final String nomProf) {
         this.nomProf = nomProf;
     }
 
@@ -47,7 +47,7 @@ public class ProfesseurEntity {
         return prenomProf;
     }
 
-    public void setPrenomProf(String prenomProf) {
+    public void setPrenomProf(final String prenomProf) {
         this.prenomProf = prenomProf;
     }
 
@@ -55,7 +55,7 @@ public class ProfesseurEntity {
         return login;
     }
 
-    public void setLogin(String login) {
+    public void setLogin(final String login) {
         this.login = login;
     }
 
@@ -63,7 +63,7 @@ public class ProfesseurEntity {
         return mdp;
     }
 
-    public void setMdp(String mdp) {
+    public void setMdp(final String mdp) {
         this.mdp = mdp;
     }
 
@@ -71,15 +71,15 @@ public class ProfesseurEntity {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProfesseurEntity that = (ProfesseurEntity) o;
+        final ProfesseurEntity that = (ProfesseurEntity) o;
         return numProf == that.numProf && Objects.equals(nomProf, that.nomProf) && Objects.equals(prenomProf, that.prenomProf) && Objects.equals(login, that.login) && Objects.equals(mdp, that.mdp) && Objects.equals(email, that.email);
     }
 

@@ -1,7 +1,7 @@
 package com.example.gestiondestage.repository;
 
 import com.example.gestiondestage.entities.EtudiantEntity;
-import com.example.gestiondestage.entities.StageStudent;
+import com.example.gestiondestage.entities.StudentWithTeacherAndCompanyName;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -29,11 +29,11 @@ public interface StudentRepository extends JpaRepository<EtudiantEntity, Integer
     @Query("SELECT max(e.numEtudiant) FROM EtudiantEntity e")
     int findLastAvailableId();
 
-    @Query("SELECT new com.example.gestiondestage.entities.StageStudent(e, p.nomProf, en.raisonSociale) FROM EtudiantEntity e " +
+    @Query("SELECT new com.example.gestiondestage.entities.StudentWithTeacherAndCompanyName(e, p.nomProf, en.raisonSociale) FROM EtudiantEntity e " +
             "LEFT JOIN StageEntity s ON e.numEtudiant=s.numEtudiant " +
             "LEFT JOIN ProfesseurEntity p ON s.numProf=p.numProf " +
             "LEFT JOIN EntrepriseEntity en ON s.numEntreprise=en.numEntreprise")
-    List<StageStudent> findAllStageStudents();
+    List<StudentWithTeacherAndCompanyName> findAllStageStudents();
 
     @Query(value = "SELECT if( count(*)>0, 'true', 'false' ) FROM etudiant e WHERE e.login = :login AND e.mdp = :mdp", nativeQuery = true)
     boolean login(String login, String mdp);
