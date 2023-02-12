@@ -26,8 +26,6 @@ body
 
 .nav:hover {
     left: 0px;
-    transition-property: left;
-    transition-duration: 0.4s;
 }
 
 .nav:not(:hover) {
@@ -216,9 +214,19 @@ article h2
     margin-bottom: 10px;
 }
 
+.nav:hover + .content {
+    margin-left: 230px;
+    width: calc(100% - 230px);
+}
+
+.nav:not(:hover) + .content {
+    margin-left: calc(230px - 160px);
+    width: calc(100% - 230px + 160px);
+}
+
 .content {
-    margin-left: 295px;
-    width: calc(100% - 230px - 5px);
+    transition-property: margin-left, width;
+    transition-duration: 0.4s;
 }
 
 #entreprise-main-content {
