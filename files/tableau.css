@@ -60,6 +60,11 @@
     font-size: 0.85em;
 }
 
+.list td:first-child
+{
+    text-align: right;
+}
+
 .list td ul
 {
     padding: 0px 0px 0px 20px;
@@ -71,3 +76,6 @@
     white-space: nowrap;
 }
 
+#student_table {
+    margin: 0;
+}
